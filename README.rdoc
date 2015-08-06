@@ -1,4 +1,4 @@
-# Welcome to The HIVE
+== Welcome to The HIVE
 
 ### Team Members:
 - Anna
