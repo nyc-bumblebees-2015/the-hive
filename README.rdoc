@@ -1,7 +1,7 @@
-# Welcome to The <HIVE>
+# Welcome to The HIVE
 
-###Team Mambers:
-* Anna
-* Alina
-* Christine
-* Jason
+### Team Members:
+- Anna
+- Alina
+- Christine
+- Jason
