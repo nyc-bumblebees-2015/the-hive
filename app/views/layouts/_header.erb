@@ -1,0 +1,9 @@
+<header>
+<h1> the Hive </h1>
+<% if current_user %>
+  <%= current_user.username%>
+  <%= link_to "Profile", user_path(session[:user_id]) %>
+  <%= link_to "Logout", logout_path %>
+<% end %>
+<div class='flash'> <%= flash[:notice]%> </div>
+</header>

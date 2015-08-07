@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20150807142123) do
     t.string   "email",           null: false
     t.string   "password_digest", null: false
     t.text     "bio"
-    t.integer  "zip_code",        null: false
+    t.string   "zip_code",        null: false
     t.float    "longitude",       null: false
     t.float    "latitude",        null: false
     t.string   "github_link"
