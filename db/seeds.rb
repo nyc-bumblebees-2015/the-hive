@@ -124,6 +124,8 @@ TECH_TAGS = [
 
 COLLAB_STATUSES = ["pending", "approved", "denied"]
 
+PROJECT_STATUSES = ["planning", "in progress", "completed"]
+
 # Create tags
 TECH_TAGS.each do |t|
   Tag.create(name: t)
@@ -155,7 +157,8 @@ end
                  skills_desired: Faker::Lorem.paragraph, 
                  repo_link: Faker::Internet.url('github.com'),
                  start_date: Faker::Date.between(365.days.ago, Date.today),
-                 end_date: Faker::Date.forward(365)
+                 end_date: Faker::Date.forward(365), 
+                 status: PROJECT_STATUSES.sample
                  )
 end
 
