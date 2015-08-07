@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 describe User do
+
+  it 'has a valid factory' do
+    expect(FactoryGirl.build(:user)).to be_valid
+  end
+
   it 'is invalid without a first name' do
     user = User.new(first_name: nil)
     user.valid?
@@ -70,15 +75,3 @@ describe User do
   end
 
 end
-
-      # t.string :username, null: false, unique: true, index: true
-      # t.string :first_name, null: false
-      # t.string :last_name, null: false
-      # t.string :email, null: false, unique: true
-      # t.string :password_digest, null: false
-      # t.text :bio, default: nil
-      # t.string :zip_code, null: false
-      # t.float :longitude, null: false
-      # t.float :latitude, null: false
-      # t.string :github_link, default: nil
-      # t.string :website_link, default: nil
