@@ -122,55 +122,58 @@ TECH_TAGS = [
   "stella"
 ]
 
-COLLAB_STATUSES = ["pending", "approved", "denied"]
-
-PROJECT_STATUSES = ["planning", "in progress", "completed"]
-
 # Create tags
 TECH_TAGS.each do |t|
   Tag.create(name: t)
 end
 
-# Create Users
-10.times do 
-  name = Faker::Name.name.split(" ")
-  first_name = name[0]
-  last_name = name[1]
-  User.create(username: Faker::Internet.user_name, 
-              email: Faker::Internet.email, 
-              password: "password", 
-              zip_code: Faker::Address.zip.to_s, 
-              first_name: first_name,
-              last_name: last_name,
-              bio: Faker::Lorem.paragraph,
-              website_link: Faker::Internet.url,
-              github_link: Faker::Internet.url('github.com')
-              )
-end
+# Seed users, collabs, projects with Faker data for development only
+case Rails.env
+when "development"
 
-# Create
-15.times do 
-  user_id = rand(1..User.count)
-  Project.create(creator_id: user_id, 
-                 title: Faker::App.name, 
-                 description: Faker::Lorem.paragraph, 
-                 skills_desired: Faker::Lorem.paragraph, 
-                 repo_link: Faker::Internet.url('github.com'),
-                 start_date: Faker::Date.between(365.days.ago, Date.today),
-                 end_date: Faker::Date.forward(365), 
-                 status: PROJECT_STATUSES.sample
-                 )
-end
+  COLLAB_STATUSES = ["pending", "approved", "denied"]
 
-User.all.each do |user|
-  rand(1..3).times do 
-    Collaboration.create(collaborator_id: user.id, 
-                    project_id: rand(1..Project.count), 
-                    status: COLLAB_STATUSES.sample
-                    )
+  PROJECT_STATUSES = ["planning", "in progress", "completed"]
+
+  10.times do 
+    name = Faker::Name.name.split(" ")
+    first_name = name[0]
+    last_name = name[1]
+    User.create(username: Faker::Internet.user_name, 
+                email: Faker::Internet.email, 
+                password: "password", 
+                zip_code: Faker::Address.zip.to_s, 
+                first_name: first_name,
+                last_name: last_name,
+                bio: Faker::Lorem.paragraph,
+                website_link: Faker::Internet.url,
+                github_link: Faker::Internet.url('github.com')
+                )
   end
-end
 
-Project.all.each do |project|
-  project.tags << Tag.all.sample(rand(1..5))
+  15.times do 
+    user_id = rand(1..User.count)
+    Project.create(creator_id: user_id, 
+                   title: Faker::App.name, 
+                   description: Faker::Lorem.paragraph, 
+                   skills_desired: Faker::Lorem.paragraph, 
+                   repo_link: Faker::Internet.url('github.com'),
+                   start_date: Faker::Date.between(365.days.ago, Date.today),
+                   end_date: Faker::Date.forward(365), 
+                   status: PROJECT_STATUSES.sample
+                   )
+  end
+
+  User.all.each do |user|
+    rand(1..3).times do 
+      Collaboration.create(collaborator_id: user.id, 
+                      project_id: rand(1..Project.count), 
+                      status: COLLAB_STATUSES.sample
+                      )
+    end
+  end
+
+  Project.all.each do |project|
+    project.tags << Tag.all.sample(rand(1..5))
+  end
 end
