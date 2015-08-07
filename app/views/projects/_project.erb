@@ -1,0 +1,9 @@
+<div class="project-teaser">
+  <div class="title"><%= link_to project.title, project_path(project)%></div>
+  <div class="description"><%= project.description %></div>
+  <div class="tags">
+    <% project.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag), class: "tag"%>
+    <% end %>
+  </div>
+</div>
