@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password, length: { in: 6..20 }
   validates :zip_code, length: { is: 5 }
-  validates_format_of :zip_code, :with => ^\d$
+  validates_format_of :zip_code, :with => /^\d$/
   validates :longitude, presence: true
   validates :latitude, presence: true
 
