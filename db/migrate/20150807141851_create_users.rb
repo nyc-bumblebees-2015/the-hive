@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email, null: false, unique: true
       t.string :password_digest, null: false
       t.text :bio, default: nil
-      t.integer :zip_code, null: false
+      t.string :zip_code, null: false
       t.float :longitude, null: false
       t.float :latitude, null: false
       t.string :github_link, default: nil
