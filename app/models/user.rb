@@ -15,4 +15,10 @@ class User < ActiveRecord::Base
   has_many :projects_created, class_name: "Project", foreign_key: "creator_id"
   has_many :collaborations, foreign_key: "collaborator_id"
   has_many :projects_collaborated_on, through: :collaborations, source: :project
+
+
+  def gravatar_url
+    gravatar_id = Digest::MD5::hexdigest(self.email.downcase)
+    "http://secure.gravatar.com/avatar/#{gravatar_id}"
+  end
 end
