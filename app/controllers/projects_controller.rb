@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action: require_login, only [:create, :edit, :update, :destroy]
+  # before_action: require_login, only [:create, :edit, :update, :destroy]
 
   def index
     @projects = Project.all
@@ -12,8 +12,10 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.creator = current_user
+    tags = params[:tags].split(',')
     if @project.save
       redirect_to @project
+      else
     else
       flash[:errors] = @project.errors.full_messages
       render :new
