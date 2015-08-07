@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  # before_action: require_login, only [:create, :edit, :update, :destroy]
+  before_action :require_login, only: [:create, :edit, :update, :destroy]
 
   def index
     @projects = Project.all
@@ -11,15 +11,18 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.creator = current_user
     tags = params[:tags].split(',')
-
-    # if valid_tags?.find_by(name)(tags)
+    tags.each do |tag|
+      valid_tag = Tag.find_by(name: tag.strip.capitalize)
+      if valid_tag
+        @project.tags << valid_tag
+      else
+        flash[:errors] = @project.errors.full_messages
+      end
+    end
     if @project.save
       redirect_to @project
-      else
     else
-      flash[:errors] = @project.errors.full_messages
       render :new
     end
   end
@@ -32,7 +35,7 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:title, :description, :start_date, :end_date, :status, :skills_desired, :repo_link).merge(user_id: session[:user_id])
+    params.require(:project).permit(:title, :description, :start_date, :end_date, :status, :skills_desired, :repo_link).merge(creator_id: session[:user_id])
   end
 
 end
