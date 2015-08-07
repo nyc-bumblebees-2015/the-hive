@@ -1,0 +1,31 @@
+<h1>Create Your Project</h1>
+<div class="new_project_form">
+  <%= form_for @project do |f| %>
+  <div class="form_field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form_field">
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 10, cols: 80 %>
+  </div>
+  <div class="form_field">
+    <%= f.label :skills_desired %>
+    <%= f.text_area :skills_desired, rows: 10, cols: 80 %>
+  </div>
+  <div class="form_field">
+    <%= f.label :repo_link %>
+    <%= f.text_field :repo_link %>
+  </div>
+  <div class="form_field">
+    <%= f.label :start_date %>
+    <%= date_select :start_date %>
+  </div>
+  <div class="form_field">
+    <%= f.label :end_date %>
+    <%= date_select :end_date %>
+  </div>
+  <div class="form_field">
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+</div>
