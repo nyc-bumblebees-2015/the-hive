@@ -17,14 +17,14 @@ class UsersController < ApplicationController
 	end
 
   def show
-    require_logged_in
+    require_login
     @user = User.find_by(id: params[:id])
     @projects_created = @user.projects_created
     @projects_collaborated_on = @user.projects_collaborated_on
   end
 
   def edit
-    require_logged_in
+    require_login
     @user = User.find_by(id: params[:id])
     require_current_user(@user)
   end
