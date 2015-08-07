@@ -16,17 +16,21 @@ class UsersController < ApplicationController
 	end
 
   def show
+    require_logged_in
     @user = User.find_by(id: params[:id])
     @projects_created = @user.projects_created
     @projects_collaborated_on = @user.projects_collaborated_on
   end
 
   def edit
+    require_logged_in
     @user = User.find_by(id: params[:id])
+    require_current_user(@user)
   end
 
   def update
     user = User.find_by(id: params[:id])
+    require_current_user(user)
     user.update_attributes(user_params)
     if user.save 
       flash[:success] = "Your profile has been updated!"
