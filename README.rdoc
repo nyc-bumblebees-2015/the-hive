@@ -1,6 +1,6 @@
 == Welcome to The HIVE
 
-### Team Members:
+Team Members:
 - Anna
 - Alina
 - Christine
