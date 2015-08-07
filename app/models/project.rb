@@ -5,4 +5,10 @@ class Project < ActiveRecord::Base
   has_many :collaborations
   has_many :collaborators, through: :collaborations, class_name: "User"
 
+  validates :creator, presence: true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :status, presence: true
+  validates :skills_desired, presence: true
+
 end
