@@ -34,6 +34,10 @@ gem 'geocoder'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+
+  # Faker Gem for dev seed data
+  gem 'faker'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
