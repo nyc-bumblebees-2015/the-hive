@@ -13,6 +13,8 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.creator = current_user
     tags = params[:tags].split(',')
+
+    # if valid_tags?.find_by(name)(tags)
     if @project.save
       redirect_to @project
       else
