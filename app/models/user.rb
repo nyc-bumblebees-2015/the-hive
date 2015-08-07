@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   validates :password, length: { in: 6..20 }
   validates :zip_code, length: { is: 5 }
   validates_format_of :zip_code, :with => /\d/
-  validates :longitude, presence: true
-  validates :latitude, presence: true
+  # validates :longitude, presence: true
+  # validates :latitude, presence: true
 
 
   has_many :projects_created, class_name: "Project", foreign_key: "creator_id"
