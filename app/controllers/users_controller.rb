@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @projects_created = @user.projects_created
+    @projects_collaborated_on = @user.projects_collaborated_on
   end
 
   def edit
