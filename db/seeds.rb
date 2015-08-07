@@ -164,13 +164,13 @@ end
 
 User.all.each do |user|
   rand(1..3).times do 
-    Collaboration.new(collaborator_id: user.id, 
+    Collaboration.create(collaborator_id: user.id, 
                     project_id: rand(1..Project.count), 
                     status: COLLAB_STATUSES.sample
                     )
   end
 end
 
-Projects.all.each do |project|
-  project.tags << TECH_TAGS.sample(rand(1..5))
+Project.all.each do |project|
+  project.tags << Tag.all.sample(rand(1..5))
 end
