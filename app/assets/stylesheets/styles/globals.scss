@@ -1,0 +1,19 @@
+body {
+  font-family: $main-font;
+  font-size:14px;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+a { 
+  text-decoration: none;
+  color: $accent-color;
+}
+
+h1, h2, h3, h4 {
+  color: $accent-color;
+}
+
+#content {
+  padding:1%;
+}
