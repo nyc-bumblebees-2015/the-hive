@@ -27,6 +27,8 @@ gem 'bcrypt', '~> 3.1.7'
 # User Geocoder gem
 gem 'geocoder'
 
+gem 'gmaps4rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
