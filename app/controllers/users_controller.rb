@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 			session[:user_id] = @user.id
 			redirect_to :root
 		else
-			flash.now[:error] = @user.errors.full_messages
+			flash.now[:errors] = @user.errors.full_messages
 		  render :new
 		end
 	end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
       flash[:success] = "Your profile has been updated!"
       redirect_to user_path(user)
     else
-      flash[:error] = user.errors.full_messages
+      flash[:errors] = user.errors.full_messages
       redirect_to edit_user_path(user)
     end
   end

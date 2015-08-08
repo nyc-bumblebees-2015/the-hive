@@ -15,5 +15,10 @@ class Project < ActiveRecord::Base
     tags.map { |tag| tag.name }.join(', ')
   end
 
+  def collaborators_with_status(status)
+    User.joins(:collaborations)
+    .select("collaborations.project_id, collaborations.status, users.*")
+    .where("status='#{status}' AND project_id=#{self.id}")
+  end
 end
 
