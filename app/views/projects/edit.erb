@@ -1,5 +1,5 @@
-<h1>Create Your Project</h1>
-<div class="project-form">
+<h1>Edit Project</h1>
+<div class="project_form">
   <%= form_for @project do |f| %>
   <div class="form-field">
     <%= f.label :title %>
@@ -35,6 +35,11 @@
   </div>
   <div class="submit-button">
     <%= f.submit "Edit Project" %>
+  </div>
+  <% end %>
+</div>
+  <div class="submit-button">
+    <%= f.submit "Create Project" %>
   </div>
   <% end %>
 </div>
