@@ -7,11 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if flash[:error]%>
-  <% flash[:error].each do |error| %>
-    <div><%= error %></div>
+<div class="flash">
+  <% if flash[:success]%>
+    <div class="success"><%= flash[:success] %></div>
   <% end %>
-<% end %>
+  <% if flash[:error]%>
+    <% flash[:error].each do |error| %>
+      <div class="error"><%= error %></div>
+    <% end %>
+  <% end %>
+</div>
 <%= render 'layouts/header' %>
 <%= yield %>
 
