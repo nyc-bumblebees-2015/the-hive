@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'hub#index'
 
-  resources :users, except: [:index, :destroy]
+  resources :users, except: [:index, :destroy, :new]
 
   resources :projects do 
     resources :collaborations, only: [:create, :update]
