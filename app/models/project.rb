@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
 
   def collaborators_with_status(status)
     User.joins(:collaborations)
-    .select("collaborations.project_id, collaborations.status, users.id")
+    .select("collaborations.project_id, collaborations.status, users.*")
     .where("status='#{status}' AND project_id=#{self.id}")
   end
 end
