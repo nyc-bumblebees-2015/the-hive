@@ -24,8 +24,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# User Geocoder gem
+# Use Geocoder gem
 gem 'geocoder'
+
+# Use MailBoxer gem
+gem 'mailboxer'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
