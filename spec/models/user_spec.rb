@@ -7,69 +7,69 @@ describe User do
   end
 
   it 'is invalid without a first name' do
-    user = User.new(first_name: nil)
+    user = FactoryGirl.build(:user, first_name: nil)
     user.valid?
     expect(user.errors[:first_name]).to include("can't be blank")
   end
 
   it 'is invalid without a last name' do
-    user = User.new(last_name: nil)
+    user = FactoryGirl.build(:user, last_name: nil)
     user.valid?
     expect(user.errors[:last_name]).to include("can't be blank")
   end
 
   it 'is invalid without a username' do
-    user = User.new(username: nil)
+    user = FactoryGirl.build(:user, username: nil)
     user.valid?
     expect(user.errors[:username]).to include("can't be blank")
   end
 
   it 'is invalid with a duplicate username' do
-    User.create(first_name: 'Joe', last_name: 'Tester', email: 'tester@example.com', username: 'joebags', password: 'banana', zip_code: '10004', longitude: 40.74, latitude: 47.23)
-    user = User.new(first_name: 'Joe', last_name: 'Tester', email: 'tester2@example.com', username: 'joebags', password: 'banana', zip_code: '10004', longitude: 40.74, latitude: 47.23)
+    FactoryGirl.create(:user, username: 'tester')
+    user = FactoryGirl.build(:user, username: 'tester')
     user.valid?
     expect(user.errors[:username]).to include("has already been taken")
   end
 
   it 'is invalid without an email address' do
-    user = User.new(email: nil)
+    user = FactoryGirl.build(:user, email: nil)
     user.valid?
     expect(user.errors[:email]).to include("can't be blank")
   end
 
   it 'is invalid with a duplicate email' do
-    User.create(first_name: 'Joe', last_name: 'Tester', email: 'tester@example.com', username: 'joebags', password: 'banana', zip_code: '10004', longitude: 40.74, latitude: 47.23)
-    user = User.new(first_name: 'Joe', last_name: 'Tester', email: 'tester@example.com', username: 'joebags', password: 'banana', zip_code: '10004', longitude: 40.74, latitude: 47.23)
+    FactoryGirl.create(:user, email: 'tester@aol.com')
+    user = FactoryGirl.build(:user, email: 'tester@aol.com')
     user.valid?
     expect(user.errors[:email]).to include("has already been taken")
   end
 
   it 'is invalid without a zip code' do
-    user = User.new(zip_code: nil)
+    user = FactoryGirl.build(:user, zip_code: nil)
     user.valid?
     expect(user.errors[:zip_code]).to include("is the wrong length (should be 5 characters)")
   end
 
   it 'is invalid with a zip code with a length other than 5' do
-    user = User.new(zip_code: 123456)
+    user = FactoryGirl.build(:user, zip_code: 123456)
     user.valid?
     expect(user.errors[:zip_code]).to include("is the wrong length (should be 5 characters)")
   end
 
   it 'is invalid without a password' do
-    user = User.new(password: nil)
+    user = FactoryGirl.build(:user, password: nil)
     user.valid?
     expect(user.errors[:password]).to include("can't be blank")
   end
 
   it 'is invalid when a password length is less that 6' do
-    user = User.new(password: 'bana')
+    user = FactoryGirl.build(:user, password: 'bana')
     user.valid?
     expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
   end
 
   it 'is invalid when a password length is greater than 20' do
-    user = User.new(password: 'banananananananananan')
+    user = FactoryGirl.build(:user, password: 'banananananananananan')
     user.valid?
     expect(user.errors[:password]).to include("is too long (maximum is 20 characters)")
   end
