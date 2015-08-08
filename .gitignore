@@ -13,7 +13,7 @@
 !/log/.keep
 /tmp
 
-/app/assets/fonts
+*.ttf
 
 *.rbc
 capybara-*.html
