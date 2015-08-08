@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index, :destroy]
 
-  resources :projects
-
-  resources :collaborations, only: [:create, :update]
+  resources :projects do 
+    resources :collaborations, only: [:create, :update]
+  end
 
   resources :tags, only: [:index, :show]
 
