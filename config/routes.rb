@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'hub#index'
 
-  resources :users, except: [:index, :destroy]
+  resources :users, except: [:destroy]
 
   resources :projects
 

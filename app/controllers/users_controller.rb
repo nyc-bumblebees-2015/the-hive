@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
 
+  def index
+   @users = User.all
+   @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+    marker.lat user.latitude
+    marker.lng user.longitude
+    marker.infowindow user.projects_created
+   end
+  end
+
 	def new
 		@user = User.new
 	end
@@ -33,7 +42,7 @@ class UsersController < ApplicationController
     user = User.find_by(id: params[:id])
     require_current_user(user)
     user.update_attributes(user_params)
-    if user.save 
+    if user.save
       flash[:success] = "Your profile has been updated!"
       redirect_to user_path(user)
     else
@@ -44,7 +53,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :email, :username, :zip_code, 
-                                 :bio, :github_link, :website_link)
+    params.require(:user).permit(:username, :first_name, :last_name, :email, :username, :zip_code, :bio, :github_link, :website_link)
   end
 end
