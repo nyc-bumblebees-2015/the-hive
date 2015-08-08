@@ -1,0 +1,13 @@
+// CSS Reset
+@import "base/normalize.scss";
+
+// Core
+@import "base/variables.scss";
+@import "base/mixins.scss";
+
+// Styled patterns and elements
+@import "base/fonts.scss";
+@import "base/forms.scss";
+
+// Styles
+@import "styles/globals.scss";
