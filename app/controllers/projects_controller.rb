@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to @project
     else
+      flash[:errors] = @project.errors.full_messages
       render :new
     end
   end
