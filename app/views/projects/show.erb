@@ -1,7 +1,8 @@
 <h2><%= @project.title%></h2>
 <div>Project Lead: <%= @project.creator %></div>
+<div>About: <%= @project.description%></div>
 <div>Status: <%= @project.status %></div>
-<div>Skills disired: <%= @project.skills_desired %></div>
+<div>Skills desired: <%= @project.skills_desired %></div>
 <% if @project.start_date %>
 	<div><%= @project.start_date %></div>
 <% end %>
