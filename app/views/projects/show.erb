@@ -1,8 +1,23 @@
 <h2><%= @project.title%></h2>
-<div class="project-lead">Project Lead: <%= link_to @project.creator.username, user_path(@project.creator) %></div>
-<div class="project-desc">About: <%= @project.description%></div>
-<div class="status">Status: <%= @project.status %></div>
-<div class="requirement">Skills desired: <%= @project.skills_desired %></div>
+<div class="project-lead">
+	Project Lead: <%= link_to @project.creator.username, user_path(@project.creator) %>
+	</div>
+<div class="project-desc">
+	About: <%= @project.description%>
+</div>
+<div class="status">
+	Status: <%= @project.status %>
+</div>
+<div class="requirement">
+	Skills desired: <%= @project.skills_desired %>
+</div>
+
+<% if @project.creator != current_user%>
+	<div class="request-collaboration">
+		<%= button_to "Collaborate on this project!", "/projects/#{@project.id}/collaborations" %>
+	</div>
+<% end %>
+
 <% if @project.start_date %>
 	<div class="date">Start date: <%= @project.start_date %></div>
 <% end %>
@@ -12,6 +27,7 @@
 <% if @project.repo_link %>
 	<div class="link">Link to repo: <a href="<%= @project.repo_link%>"><%= @project.repo_link %></a></div>
 <% end %>
+
 <% unless @project.collaborators.empty? %>
 	<div class="collaborators">Collaborators of this project: </div>
 		<div>
@@ -25,4 +41,4 @@
 	<% @project.tags.each do |tag| %>
 		<%= link_to tag.name, tag_path(tag)%>
 	<% end %>
-</div>>
+</div>
