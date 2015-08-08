@@ -1,0 +1,19 @@
+<h2><%= @project.title%></h2>
+<div>Project Lead: <%= @project.creator %></div>
+<div>Status: <%= @project.status %></div>
+<div>Skills disired: <%= @project.skills_desired %></div>
+<% if @project.start_date %>
+	<div><%= @project.start_date %></div>
+<% end %>
+<% if @project.end_date %>
+	<div><%= @project.end_date %></div>
+<% end %>
+<% if @project.repo_link %>
+	<div><%= @project.repo_link %></div>
+<% end %>
+<% unless @project.collaborators.empty? %>
+	<div>Collaborators of this project: </div>
+		<% @project.collaborators.each do |collaborator| %>
+			<div><%= collaborator.username %></div>
+		<% end %>
+<% end %>
