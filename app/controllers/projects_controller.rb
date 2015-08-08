@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find_by(id: params[:id])
+    @active_collaborators = @project.collaborators_with_status("approved")
   end
 
   def edit
