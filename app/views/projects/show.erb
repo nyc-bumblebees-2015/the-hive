@@ -28,12 +28,14 @@
 	<div class="link">Link to repo: <a href="<%= @project.repo_link%>"><%= @project.repo_link %></a></div>
 <% end %>
 
+<% unless @active_collaborators.empty? %>
 	<div class="collaborators">Collaborators: </div>
 		<div>
 			<% @active_collaborators.each do |collaborator| %>
 				<%= link_to collaborator.username, user_path(collaborator) %>
 			<% end %>
 		</div>
+<% end %>
 
 <div class = "tag">
 	<% @project.tags.each do |tag| %>
