@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
         if valid_tag
           @project.tags << valid_tag
         else
-          flash[:errors] = @project.errors.full_messages
+          flash[:notice] = "That tag does not exist"
         end
       end
       redirect_to @project, notice: "Project updated successfully"
