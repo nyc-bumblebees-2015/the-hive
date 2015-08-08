@@ -11,9 +11,9 @@ class Project < ActiveRecord::Base
   validates :status, presence: true
   validates :skills_desired, presence: true
 
-  # def valid_tags?(tags)
-  #   tags.all? { |tag| TECH_TAGS.include?(tag)}
-  # end
+  def tags_for_edit
+    tags.map { |tag| tag.name }.join(', ')
+  end
 
 end
 
