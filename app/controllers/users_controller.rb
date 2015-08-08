@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user.password = params[:user][:password]
 		if @user.save
 			session[:user_id] = @user.id
-			redirect_to :root
+			redirect_to root_path
 		else
 			flash.now[:errors] = @user.errors.full_messages
 		  render :new
@@ -26,12 +26,10 @@ class UsersController < ApplicationController
   def edit
     require_login
     @user = User.find_by(id: params[:id])
-    require_current_user(@user)
   end
 
   def update
     user = User.find_by(id: params[:id])
-    require_current_user(user)
     user.update_attributes(user_params)
     if user.save
       flash[:success] = "Your profile has been updated!"
