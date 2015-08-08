@@ -31,8 +31,34 @@ class ProjectsController < ApplicationController
     @project = Project.find_by(id: params[:id])
   end
 
+  def edit
+    @project = Project.find_by(id: params[:id])
+  end
+
+  def update
+    @project = Project.find_by(id: params[:id])
+    current_tags = @project.project_tags
+    current_tags.destroy_all
+    @project.assign_attributes(project_params)
+    tags = params[:tags].split(',')
+    if @project.save
+      tags.each do |tag|
+        valid_tag = Tag.find_by(name: tag.strip.capitalize)
+        if valid_tag
+          @project.tags << valid_tag
+        else
+          flash[:errors] = @project.errors.full_messages
+        end
+      end
+      redirect_to @project, notice: "Project updated successfully"
+    else
+      flash[:errors] = @project.errors.full_messages
+      render :edit
+    end
+  end
+
   def destroy
-    Project.find(params[:id]).destroy
+    Project.find_by(id: params[:id]).destroy
     redirect_to root_path
   end
 
