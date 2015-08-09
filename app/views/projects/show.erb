@@ -37,12 +37,13 @@
 		</div>
 <% end %>
 
-<div class = "tag">
+<div class="tags">
 	<% @project.tags.each do |tag| %>
-		<%= link_to tag.name, tag_path(tag)%>
+		<div class="tag"><%= link_to tag.name, tag_path(tag)%></div>
 	<% end %>
 </div>
 
-
 <%= render partial: 'conversations/form', locals: {recipient: @project.creator}%>
 
+=======
+<%= render partial: 'conversations/form', locals: {recipient: @project.creator}%>
