@@ -3,7 +3,7 @@
   <div class="description"><%= project.description %></div>
   <div class="tags">
     <% project.tags.each do |tag| %>
-      <%= link_to tag.name, tag_path(tag), class: "tag"%>
+      <div class="tag"><%= link_to tag.name, tag_path(tag), class: "tag"%></div>
     <% end %>
   </div>
 </div>
