@@ -1,9 +1,13 @@
 <ul>
+  <% if @users.empty? %>
+  <div class="project-result"><h2>Sorry, no projects found in your area</h2></div>
+  <% else %>
 <% for user in @users %>
   <% for project in user.projects_created %>
   <%= render partial: 'project', locals: { project: project} %>
   <div class="project-result"><%= project.creator.username %></div>
   <% end %>
+<% end %>
 <% end %>
 </ul>
 
