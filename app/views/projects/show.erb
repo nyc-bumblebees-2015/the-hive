@@ -42,3 +42,5 @@
 		<%= link_to tag.name, tag_path(tag)%>
 	<% end %>
 </div>
+
+<%= render partial: 'conversations/form', locals: {recipient: @project.creator}%>

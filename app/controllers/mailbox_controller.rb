@@ -3,7 +3,9 @@ class MailboxController < ApplicationController
 
   def inbox
     @inbox = mailbox.inbox
-    @active = :inbox
+
+    render :inbox
+
   end
 
   def sent
