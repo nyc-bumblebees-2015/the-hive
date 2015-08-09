@@ -1,10 +1,4 @@
 class UsersController < ApplicationController
-  def index
-    @user = session[:user_id]
-    if params[:search].present?
-      @users = User.near(params[:search], 100, :order => 'distance')
-    end
-  end
 
 	def new
 		@user = User.new
@@ -49,7 +43,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :email, :username, :zip_code,
-                                 :bio, :github_link, :website_link)
+    params.require(:user).permit(:username, :first_name, :last_name, :email, :username, :zip_code, :bio, :github_link, :website_link)
   end
 end
