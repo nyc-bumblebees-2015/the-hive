@@ -1,14 +1,14 @@
 <div class="user-profile">
 
-  <div class="avatar"><img src="<%= @user.gravatar_url %>"></div>
+  <div class="avatar left"><img src="<%= @user.gravatar_url %>"></div>
   <div class="username"><%= @user.username %></div>
 
   <div class="links">
     <% if @user.github_link %>
-      <div class="github"><a href="<%= @user.github_link%>">GitHub</a>
+      <div class="github"><a href="<%= @user.github_link%>">GitHub</a></div>
     <% end %>
     <% if @user.website_link %>
-      <div class="website"><a href="<%= @user.website_link%>">Website</a>
+      <div class="website"><a href="<%= @user.website_link%>">Website</a></div>
     <% end %>
   </div>
 
