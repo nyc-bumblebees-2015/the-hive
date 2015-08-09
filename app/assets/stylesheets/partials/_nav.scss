@@ -1,4 +1,7 @@
 nav {
+
+  background-color: $panel-color;
+
   &:after {
     clear:both;
     display:block;
@@ -21,7 +24,7 @@ nav {
   }
 
   li#name img{
-    max-height:50px;
+    max-height:65px;
     padding:5px;
   }
 }
