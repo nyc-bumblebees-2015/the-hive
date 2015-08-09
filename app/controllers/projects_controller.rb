@@ -17,13 +17,13 @@ class ProjectsController < ApplicationController
       if valid_tag
         @project.tags << valid_tag
       else
-        flash[:errors] = @project.errors.full_messages
+        flash.now[:errors] = ["The tag #{tag.strip} does not exist"]
       end
     end
-    if @project.save
+    if flash.now[:errors].nil? && @project.save
       redirect_to @project
     else
-      flash[:errors] = @project.errors.full_messages
+      flash.now[:errors] = @project.errors.full_messages
       render :new
     end
   end

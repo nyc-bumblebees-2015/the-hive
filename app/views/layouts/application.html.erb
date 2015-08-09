@@ -3,22 +3,27 @@
 <head>
   <title>TheHive</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="flash">
-  <% if flash[:success]%>
-    <div class="success"><%= flash[:success] %></div>
-  <% end %>
-  <% if flash[:errors]%>
-    <% flash[:errors].each do |error| %>
-      <div class="error"><%= error %></div>
-    <% end %>
-  <% end %>
-</div>
 <%= render 'layouts/header' %>
-<%= yield %>
+<div class="content">
+  <div class="flash">
+    <% if flash[:success]%>
+      <div class="success"><%= flash[:success] %></div>
+    <% end %>
+    <% if flash[:errors]%>
+      <% flash[:errors].each do |error| %>
+        <div class="error"><%= error %></div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= yield %>
+</div>
 
 </body>
 </html>

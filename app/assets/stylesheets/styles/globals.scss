@@ -1,0 +1,53 @@
+body {
+  font-family: $main-font;
+  font-size:14px;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+a { 
+  text-decoration: none;
+  color: $accent-color;
+
+  &:hover {
+    color: $dark-accent-color;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: $main-font;
+  color: $accent-color;
+  font-weight:bold;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size:1.75em;
+}
+
+h3 {
+  font-size:1.5em
+}
+
+.content {
+  width:90%;
+  max-width:1280px;
+  margin:0 auto;
+  padding-top:20px;
+}
+
+.left {
+  float:left;
+}
+
+.right {
+  float:right;
+}
+
+ul {
+  margin:0;
+  padding:0;
+}

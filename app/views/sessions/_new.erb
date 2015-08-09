@@ -1,0 +1,7 @@
+<%= form_for user, url: '/login' do |f| %>
+  <div class="form-field input-field col s12"><%= f.label :username %>
+  <%= f.text_field :username %></div>
+  <div class="form-field input-field col s12"><%= f.label :password %>
+  <%= f.password_field :password%></div>
+  <%= f.submit "Login" %>
+<% end %>

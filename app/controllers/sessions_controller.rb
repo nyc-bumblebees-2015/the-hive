@@ -9,14 +9,14 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to :root
     else
-      flash.now[:errors] = ["Incorrect username or password."]
-      render :new
+      flash[:errors] = ["Incorrect username or password."]
+      redirect_to :root
     end
   end
 
   def destroy
     session.clear
-    redirect_to login_path, notice: "You have successfully logged out."
+    redirect_to root_path, notice: "You have successfully logged out."
   end
 
   private

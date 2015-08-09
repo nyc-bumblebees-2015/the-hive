@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
   def gravatar_url
     gravatar_id = Digest::MD5::hexdigest(self.email.downcase)
-    "http://secure.gravatar.com/avatar/#{gravatar_id}"
+    "http://secure.gravatar.com/avatar/#{gravatar_id}?s=200"
   end
 
   def mailboxer_name
