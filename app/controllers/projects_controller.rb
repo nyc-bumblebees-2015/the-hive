@@ -67,6 +67,7 @@ class ProjectsController < ApplicationController
   def results
     if params[:search].present?
       @users = User.near(params[:search], 100, :order => 'distance')
+      # projects where creator
     end
   end
 
