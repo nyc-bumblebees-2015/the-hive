@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'hub#index'
 
-  resources :users, except: [:index, :destroy, :new]
+  resources :users, except: [:destroy, :new]
 
   resources :projects do
     resources :collaborations, only: [:create, :update]
@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
   get '/logout' => 'sessions#destroy'
-  get '/locations/search' => 'locations#search', as: :search
+  #get '/users/search' => 'users#search', as: :search
+  get '/users/results' => 'users#results'
 
   get 'mailbox/inbox' => 'mailbox#inbox', as: :mailbox_inbox
   get 'mailbox/sent' => 'mailbox#sent', as: :mailbox_sent

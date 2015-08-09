@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def results
+    if params[:search].present?
+      @users = User.near(params[:search], 100, :order => 'distance')
+    end
+  end
 
 	def new
 		@user = User.new
@@ -39,6 +44,7 @@ class UsersController < ApplicationController
       redirect_to edit_user_path(user)
     end
   end
+
 
   private
   def user_params
