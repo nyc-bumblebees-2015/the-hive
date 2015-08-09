@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  has_many :conversations, as: :conversationable, class_name: "::Mailboxer::Conversation"
+
   belongs_to :creator, class_name: "User"
   has_many :project_tags
   has_many :tags, through: :project_tags

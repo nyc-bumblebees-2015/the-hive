@@ -8,6 +8,7 @@
       <%= truncate conversation.messages.last.body, length: 145 %>
     </div>
       <% if conversation.messages.last.body.include?('requested to join') %>
+        <%= @pending.project_id %>
         <%= button_to "Approve" %>
         <%= button_to "Deny" %>
       <% else %>
