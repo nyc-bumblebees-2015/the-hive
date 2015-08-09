@@ -2,7 +2,9 @@
 <div class="nav-wrapper">
   <ul>
     <li id="name">
-    <%= image_tag "hive-logo.png" %>
+    <%= link_to root_path do %>
+      <%= image_tag "hive-logo.png" %>
+    <% end %>
     </li>
   </ul>
   <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
