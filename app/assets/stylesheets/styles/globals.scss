@@ -12,6 +12,10 @@ body {
 a { 
   text-decoration: none;
   color: $accent-color;
+
+  &:hover {
+    color: $dark-accent-color;
+  }
 }
 
 h1, h2, h3, h4 {
