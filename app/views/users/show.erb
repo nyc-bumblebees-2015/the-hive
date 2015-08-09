@@ -2,7 +2,7 @@
 
   <div class="avatar"><img src="<%= @user.gravatar_url %>"></div>
   <div class="username"><%= @user.username %></div>
-  
+
   <div class="links">
     <% if @user.github_link %>
       <div class="github"><a href="<%= @user.github_link%>">GitHub</a>
@@ -11,7 +11,7 @@
       <div class="website"><a href="<%= @user.website_link%>">Website</a>
     <% end %>
   </div>
-  
+
   <div class="bio"><%= @user.bio %></div>
 
   <div class="projects-created">

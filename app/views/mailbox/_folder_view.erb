@@ -1,0 +1,8 @@
+
+<%= render 'mailbox/folders' %>
+
+<% if is_conversation %>
+  <%= render 'conversations/form' %>
+<% else %>
+  <%= render partial: 'conversations/conversation', collection: messages %>
+<% end %>

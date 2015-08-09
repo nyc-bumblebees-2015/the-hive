@@ -1,0 +1,21 @@
+<ul>
+  <h3>Welcome to your Mailbox</h3>
+  <li class="<%= active_page(:inbox) %>">
+    <%= link_to mailbox_inbox_path do  %>
+        <span><%=unread_messages_count%></span>
+        <span>Inbox</span>
+    <% end %>
+  </li>
+  <li class="<%= active_page(:sent) %>">
+    <%= link_to mailbox_sent_path do %>
+
+        <span>Sent</span>
+    <% end %>
+  </li>
+
+  <li class="<%= active_page(:trash) %>">
+    <%= link_to mailbox_trash_path do %>
+        <span>Trash</span>
+    <% end %>
+  </li>
+</ul>

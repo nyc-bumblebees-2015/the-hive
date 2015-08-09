@@ -1,0 +1,9 @@
+
+<%= render 'mailbox/folders' %>
+<%= render partial: 'messages' %>
+<%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
+<div class="form-group">
+<%= f.text_area :body, placeholder: "Reply Message", rows: 4, class: "form-control" %>
+</div>
+<%= f.submit "Reply", class: 'btn btn-danger pull-right' %>
+<% end %>
