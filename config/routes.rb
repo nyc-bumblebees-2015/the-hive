@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
   get '/logout' => 'sessions#destroy'
-  post '/projects/search' => 'projects#search', as: :search
+  get '/locations/search' => 'locations#search', as: :search
 
   get 'mailbox/inbox' => 'mailbox#inbox', as: :mailbox_inbox
   get 'mailbox/sent' => 'mailbox#sent', as: :mailbox_sent

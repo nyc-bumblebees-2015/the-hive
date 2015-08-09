@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808215020) do
+ActiveRecord::Schema.define(version: 20150809003655) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150808215020) do
 
   add_index "collaborations", ["collaborator_id"], name: "index_collaborations_on_collaborator_id", using: :btree
   add_index "collaborations", ["project_id"], name: "index_collaborations_on_project_id", using: :btree
+
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
@@ -79,6 +81,16 @@ ActiveRecord::Schema.define(version: 20150808215020) do
 
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
+
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "zip_code",   null: false
+    t.float    "longitude",  null: false
+    t.float    "latitude",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 
   create_table "project_tags", force: :cascade do |t|
     t.integer  "project_id", null: false

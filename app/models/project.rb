@@ -20,5 +20,6 @@ class Project < ActiveRecord::Base
     .select("collaborations.project_id, collaborations.status, users.*")
     .where("status='#{status}' AND project_id=#{self.id}")
   end
+
 end
 
