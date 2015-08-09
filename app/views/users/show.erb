@@ -15,7 +15,7 @@
   <div class="bio"><%= @user.bio %></div>
 
     <h3><%= @user.username %>'s projects</h3>
-  <div class="projects-created">
+  <div class="projects-created row">
     <% if @projects_created.count > 0 %>
       <%= render @projects_created %>
     <% else %>
@@ -24,7 +24,7 @@
   </div>
 
     <h3>Projects <%= @user.username %> is collaborating on</h3>
-  <div class="collaborating-on">
+  <div class="collaborating-on row">
     <% if @projects_collaborated_on.count > 0  %>
       <%= render @projects_collaborated_on %>
     <% else %>
