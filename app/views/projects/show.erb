@@ -37,8 +37,9 @@
 <div class="tags">
 	<% @project.tags.each do |tag| %>
 		<div class="tag"><%= link_to tag.name, tag_path(tag)%></div>
-		
-<div class="collaborators">Project collaborators: 
+		<% end %>
+
+<div class="collaborators">Project collaborators:
 	<div>
 	<%= link_to @project.creator.username, user_path(@project.creator) %>
 	</div>
@@ -48,11 +49,10 @@
 					<%= link_to collaborator.username, user_path(collaborator) %>
 				<% end %>
 			</div>
->>>>>>> Style new project form
+
 	<% end %>
 </div>
 
 <%= render partial: 'conversations/form', locals: {recipient: @project.creator}%>
 
-=======
-<%= render partial: 'conversations/form', locals: {recipient: @project.creator}%>
+
