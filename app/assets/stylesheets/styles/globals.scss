@@ -1,9 +1,5 @@
-html {
-  
-  font-family: $main-font;
-}
-
 body {
+  font-family: $main-font;
   font-size:14px;
   background-color: $background-color;
   color: $text-color;
@@ -19,6 +15,7 @@ a {
 }
 
 h1, h2, h3, h4 {
+  font-family: $main-font;
   color: $accent-color;
 }
 
