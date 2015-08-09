@@ -1,9 +1,9 @@
 .tags {
   display:flex;
+  flex-wrap: wrap;
 }
 
 .tag {
-  display:block;
   background-color: $panel-color;
   color: $accent-color;
   padding: 3px;
