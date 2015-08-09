@@ -9,11 +9,10 @@ class UsersController < ApplicationController
     @user.password = params[:user][:password]
 		if @user.save
 			session[:user_id] = @user.id
-			redirect_to root_path
-		else
-			flash.now[:errors] = @user.errors.full_messages
-		  render :new
-		end
+    else
+      flash[:errors] = @user.errors.full_messages
+    end
+		redirect_to root_path
 	end
 
   def show
