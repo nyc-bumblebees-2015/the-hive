@@ -135,14 +135,16 @@ when "development"
 
   PROJECT_STATUSES = ["planning", "in progress", "completed"]
 
-  10.times do 
+  NY_ZIP_CODES = ['10001', '10026', '10038', '11204', '07748', '10025', '10014']
+
+  10.times do
     name = Faker::Name.name.split(" ")
     first_name = name[0]
     last_name = name[1]
-    User.create(username: Faker::Internet.user_name, 
-                email: Faker::Internet.email, 
-                password: "password", 
-                zip_code: Faker::Address.zip.to_s, 
+    User.create(username: Faker::Internet.user_name,
+                email: Faker::Internet.email,
+                password: "password",
+                zip_code: NY_ZIP_CODES.sample,
                 first_name: first_name,
                 last_name: last_name,
                 bio: Faker::Lorem.paragraph,
@@ -151,23 +153,23 @@ when "development"
                 )
   end
 
-  15.times do 
+  15.times do
     user_id = rand(1..User.count)
-    Project.create(creator_id: user_id, 
-                   title: Faker::App.name, 
-                   description: Faker::Lorem.paragraph, 
-                   skills_desired: Faker::Lorem.paragraph, 
+    Project.create(creator_id: user_id,
+                   title: Faker::App.name,
+                   description: Faker::Lorem.paragraph,
+                   skills_desired: Faker::Lorem.paragraph,
                    repo_link: Faker::Internet.url('github.com'),
                    start_date: Faker::Date.between(365.days.ago, Date.today),
-                   end_date: Faker::Date.forward(365), 
+                   end_date: Faker::Date.forward(365),
                    status: PROJECT_STATUSES.sample
                    )
   end
 
   User.all.each do |user|
-    rand(1..3).times do 
-      Collaboration.create(collaborator_id: user.id, 
-                      project_id: rand(1..Project.count), 
+    rand(1..3).times do
+      Collaboration.create(collaborator_id: user.id,
+                      project_id: rand(1..Project.count),
                       status: COLLAB_STATUSES.sample
                       )
     end
