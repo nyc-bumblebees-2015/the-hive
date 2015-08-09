@@ -1,0 +1,26 @@
+<ul>
+<% for user in @users %>
+  <li><%= link_to user.zip_code, user %>
+    </li>
+<% end %>
+</ul>
+<p>
+  <strong>Nearest Users to You</strong>
+  <strong>Name:</strong>
+  <%= user.username %>
+</p>
+<p>
+  <strong>First Name</strong>
+  <%= user.first_name %>
+</p>
+<p>
+  <strong>Last Name</strong>
+  <%= user.last_name %>
+</p>
+<ul>
+  <% @users.each do |user| %>
+  <% user.nearbys(100).each do |near_user| %>
+  <li>Distance: <%= near_user.distance.round(2) %></li>
+  <% end %>
+  <% end %>
+</ul>

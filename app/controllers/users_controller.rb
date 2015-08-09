@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  def results
+  def index
+    @user = session[:user_id]
     if params[:search].present?
       @users = User.near(params[:search], 100, :order => 'distance')
     end
