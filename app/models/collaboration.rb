@@ -7,13 +7,5 @@ class Collaboration < ActiveRecord::Base
   validates :project, presence: true
   validates :status, presence: true
 
-  def approve
-    update(status: 'approved')
-  end
-
-  def deny
-    update(status: 'denied')
-  end
-
 end
 

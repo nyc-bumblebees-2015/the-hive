@@ -5,8 +5,6 @@ class CollaborationsController < ApplicationController
     require_login
     project = Project.find_by(id: params[:project_id])
     if project && !collaboration_exists?(current_user, project)
-      # project.collaborations << Collaboration.new(collaborator_id: current_user.id)
-
       @pending = Collaboration.create(collaborator_id: current_user.id, project_id: project.id)
       # recipient = User.find_by(id: project.creator)
       # conversation = current_user.send_message(recipient, "#{@pending.collaborator.username} has requested to join your project: #{project.title}", 'Request').conversation
@@ -21,8 +19,11 @@ class CollaborationsController < ApplicationController
   def update
     collaborations = Collaboration.find_by(id: params[:id])
     collaborations.status = params[:status]
-    if collaborations.save
+    if collaborations.save && collaborations.status == 'approved'
       flash[:success] = "You have approved the person"
+      redirect_to mailbox_inbox_path
+    elsif collaborations.save && collaborations.status == 'denied'
+      flash[:success] = "You have denied the person"
       redirect_to mailbox_inbox_path
     else
       flash[:errors] = collaboration.errors.full_messages

@@ -9,7 +9,6 @@
     </div>
       <% if conversation.messages.last.body.include?('requested to join') %>
 
-        <%= button_to "Deny" %>
       <% else %>
         <%= link_to "View", conversation_path(conversation)  %>
       <% end %>
