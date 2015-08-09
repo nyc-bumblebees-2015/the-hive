@@ -15,6 +15,10 @@
 
   .links {
     display:flex;
+    div {
+      margin-right:15px;
+      padding:10px 0;
+    }
   }
 
   .bio:after {
