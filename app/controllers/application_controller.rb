@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
 
-  def require_login (redirect_path = login_path)
+  def require_login (redirect_path = root_path)
     redirect_to redirect_path unless is_authenticated?
   end
 
