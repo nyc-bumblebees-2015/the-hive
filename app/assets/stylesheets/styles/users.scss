@@ -1,3 +1,25 @@
 .projects-created, .collaborating-on {
   display:flex;
+  flex-wrap: wrap;
+}
+
+.user-profile {
+  .avatar {
+    padding-right:20px;
+  }
+
+  .username {
+    font-weight:bold;
+    font-size:1.75em;
+  }
+
+  .links {
+    display:flex;
+  }
+
+  .bio:after {
+    clear:both;
+    display:block;
+    content:"";
+  }
 }
