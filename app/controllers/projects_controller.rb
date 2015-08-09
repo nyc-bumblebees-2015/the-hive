@@ -68,6 +68,8 @@ class ProjectsController < ApplicationController
     if params[:search].present?
       @users = User.near(params[:search], params[:distance].to_i, :order => 'distance').where.not(:id => current_user.id)
     end
+    @projects = []
+    @users.each { |user| @projects << user.projects_created }
   end
 
 private
