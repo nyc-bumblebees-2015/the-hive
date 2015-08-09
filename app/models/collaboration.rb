@@ -1,5 +1,4 @@
 class Collaboration < ActiveRecord::Base
-  has_many :conversations, as: :conversationable, class_name: "::Mailboxer::Conversation"
 
   belongs_to :collaborator, class_name: "User"
   belongs_to :project

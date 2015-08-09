@@ -1,5 +1,11 @@
 <%= render 'mailbox/folders' %>
 
+<% @collaborations.each do |x| %>
+<%= x.project.title %>
+<%= x.collaborator.username %>
+<%= button_to 'Approve', project_collaboration_path(x.project, x), method: 'patch', params:{status: 'approved'} %>
+<% end %>
+
 <% if is_conversation %>
   <%= render 'conversations/form' %>
 <% else %>

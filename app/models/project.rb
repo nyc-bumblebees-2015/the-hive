@@ -1,5 +1,4 @@
 class Project < ActiveRecord::Base
-  has_many :conversations, as: :conversationable, class_name: "::Mailboxer::Conversation"
 
   belongs_to :creator, class_name: "User"
   has_many :project_tags
@@ -21,6 +20,10 @@ class Project < ActiveRecord::Base
     User.joins(:collaborations)
     .select("collaborations.project_id, collaborations.status, users.*")
     .where("status='#{status}' AND project_id=#{self.id}")
+  end
+
+  def collaborations_with_status(status)
+    Collaboration.where("status='#{status}' AND project_id=#{self.id}")
   end
 
 end
