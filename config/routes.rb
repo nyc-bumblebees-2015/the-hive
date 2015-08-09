@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index, :destroy]
 
-  resources :projects do 
+  resources :projects do
     resources :collaborations, only: [:create, :update]
   end
 
@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
   get '/logout' => 'sessions#destroy'
-  post '/projects/search' => 'projects#search', as: :search
+  get '/locations/search' => 'locations#search', as: :search
 
 end
