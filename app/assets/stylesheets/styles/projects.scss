@@ -1,0 +1,19 @@
+.project-teaser {
+  width:25%;
+  padding: 20px 0;
+  border-bottom: 1px solid $panel-color; 
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .title {
+    font-weight:bold;
+    font-size:1.5em;
+  }
+  .description {
+    padding:10px;
+  }
+}
+
+
