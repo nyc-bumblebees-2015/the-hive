@@ -10,6 +10,7 @@
 
   <% if current_user %>
     <ul id="mobile-menu" class="side-nav">
+      <li><%= link_to "Inbox", mailbox_inbox_path, class: "inbox"  %></li>
       <li><%= link_to "Add New Project", new_project_path, class: "new-project" %></li>
       <li><%= link_to "Edit Profile", edit_user_path(current_user), class: "edit-profile"  %></li>
       <li class="logout"><%= link_to "Logout", logout_path %></li>
@@ -18,6 +19,7 @@
       <i class="material-icons">menu</i>
     </a>
     <ul class="right hide-on-med-and-down">
+      <li class="inbox"><%= link_to "Inbox", mailbox_inbox_path %></li>
       <li class="profile"><a class="dropdown-button" href="#!" data-activates="user-dropdown" data-hover="true" data-beloworigin="true"><%= current_user.username %><i class="material-icons">arrow_drop_down</i></a></li>
       <li class="logout"><%= link_to "Logout", logout_path %></li>
     </ul>
