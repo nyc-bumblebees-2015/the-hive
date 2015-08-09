@@ -3,7 +3,6 @@ class MailboxController < ApplicationController
 
   def inbox
     @inbox = mailbox.inbox
-
     render :inbox
 
   end
