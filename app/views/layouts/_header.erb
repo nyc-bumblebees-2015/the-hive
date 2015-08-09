@@ -6,9 +6,8 @@
 </ul>
 <ul class="right">
   <% if current_user %>
-    <li><%= current_user.username%></li>
-    <li><%= link_to "Profile", user_path(session[:user_id]) %></li>
-    <li><%= link_to "Logout", logout_path %></li>
+    <li class="profile"><%= link_to current_user.username, user_path(session[:user_id]) %></li>
+    <li class="logout"><%= link_to "Logout", logout_path %></li>
   <% end %>
 </ul>
 </nav>
