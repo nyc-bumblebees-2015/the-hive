@@ -1,6 +1,6 @@
-<h1>Title</h1>
+<h1>Projects Near You</h1>
 <div class="project-form">
-  <%= form_tag users_path, :method => :get do %>
+  <%= form_tag users_results_path, :method => :get do %>
   <div class="form-field">
     <%= text_field_tag :search, params[:search] %>
 </div>

@@ -64,6 +64,12 @@ class ProjectsController < ApplicationController
     redirect_to root_path
   end
 
+  def results
+    if params[:search].present?
+      @users = User.near(params[:search], 100, :order => 'distance')
+    end
+  end
+
 private
 
   def project_params
