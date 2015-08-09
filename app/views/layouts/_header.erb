@@ -9,7 +9,7 @@
 
     <% if current_user %>
       <ul class="right hide-on-med-and-down">
-        <li class="profile"><%= link_to current_user.username, user_path(session[:user_id]) %></li>
+        <li class="profile"><a class="dropdown-button" href="#!" data-activates="user-dropdown" data-hover="true" data-beloworigin="true"><%= current_user.username %><i class="material-icons">arrow_drop_down</i></a></li>
         <li class="logout"><%= link_to "Logout", logout_path %></li>
       </ul>
       
@@ -21,3 +21,8 @@
       </ul>
     </div>
 </nav>
+
+<ul id="user-dropdown" class="dropdown-content">
+  <li><%= link_to "Add New Project", new_project_path, class: "new-project" %></li>
+  <li><%= link_to "Edit Profile", edit_user_path(current_user), class: "edit-profile"  %></li>
+</ul>

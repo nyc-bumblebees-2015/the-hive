@@ -27,4 +27,16 @@ nav {
     max-height:65px;
     padding:5px;
   }
+
+  li.profile i {
+    display: inline-block;
+  }
+}
+
+#user-dropdown{
+  background-color: $nav-color;
+  a {
+    color: $accent-color;
+    font-size:1em;
+  }
 }

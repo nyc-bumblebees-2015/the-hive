@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require bin/materialize.min.js
 //= require_tree .
+
+$(document).ready(function(){
+  $(".dropdown-button").dropdown();
+});
