@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   acts_as_messageable
 
   geocoded_by :zip_code
-  before_validation :geocode
+  after_validation :geocode
 
   validates :username, presence: true, uniqueness: true
   validates :first_name, presence: true

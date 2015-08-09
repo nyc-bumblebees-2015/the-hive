@@ -64,6 +64,18 @@ class ProjectsController < ApplicationController
     redirect_to root_path
   end
 
+  def results
+    if params[:search].present?
+      @users = User.near(params[:search], params[:distance].to_i, :order => 'distance').where.not(:id => current_user.id)
+    end
+    @projects = []
+    @users.each do |user| 
+      user.projects_created.each do |project|
+        @projects << project
+      end
+    end
+  end
+
 private
 
   def project_params

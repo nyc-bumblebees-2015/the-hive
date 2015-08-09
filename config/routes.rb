@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'hub#index'
 
+  get '/projects/results' => 'projects#results'
   resources :users, except: [:index, :destroy, :new]
 
   resources :projects do
@@ -14,7 +15,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
   get '/logout' => 'sessions#destroy'
-  post '/projects/search' => 'projects#search', as: :search
 
   get 'mailbox/inbox' => 'mailbox#inbox', as: :mailbox_inbox
   get 'mailbox/sent' => 'mailbox#sent', as: :mailbox_sent

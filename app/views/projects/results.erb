@@ -1,0 +1,12 @@
+<ul>
+  <% if @projects.empty? %>
+	  <div class="project-result"><h2>Sorry, no projects found in your area</h2></div>
+	<% else %>
+		<% @projects.each do |project| %>
+		  <%= render partial: 'project', locals: { project: project} %>
+		  <div class="project-result"><%= project.creator.username %></div>
+		<% end %>
+	<% end %>
+</ul>
+
+
