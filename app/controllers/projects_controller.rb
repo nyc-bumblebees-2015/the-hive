@@ -2,9 +2,9 @@ class ProjectsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   before_action :check_privileges, only: [:edit, :update]
 
-  def index
-    @projects = Project.all
-  end
+  # def index
+  #   @projects = Project.all
+  # end
 
   def new
     @project = Project.new
@@ -96,7 +96,7 @@ private
 
   def check_privileges
     unless current_user.id == Project.find_by(id: params[:id]).creator_id
-     redirect_to root_path, notice: "not authorized!" 
+     redirect_to root_path, notice: "not authorized!"
     end
   end
 
