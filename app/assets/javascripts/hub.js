@@ -4,7 +4,7 @@ $(document).on('ready',function(){
 		$('.location-search').css({"display":""});
 	})
 	$('.tags').click(function(){
-		$('.tags-search').css({"display":""});
+		$('.tags-search').css({"display":"inline-block"});
 		$('.location-search').css({"display":"none"});
 	})
 })
