@@ -74,11 +74,18 @@ class ProjectsController < ApplicationController
       @users = User.near(params[:search], params[:distance].to_i, :order => 'distance').where.not(:id => current_user.id)
     end
     @projects = []
-    @users.each do |user| 
+    @users.each do |user|
       user.projects_created.each do |project|
         @projects << project
       end
     end
+    if request.xhr?
+      puts "rendering project"
+      render partial: 'project', collection: @projects
+    else
+      puts "rendering not partial"
+    end
+
   end
 
 private
