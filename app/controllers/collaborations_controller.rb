@@ -9,7 +9,7 @@ class CollaborationsController < ApplicationController
       # recipient = User.find_by(id: project.creator)
       # conversation = current_user.send_message(recipient, "#{@pending.collaborator.username} has requested to join your project: #{project.title}", 'Request').conversation
 
-      flash[:success] = "You have requested to collaborate on '#{project.title}'"
+      flash[:notice] = "You have requested to collaborate on '#{project.title}'"
     else
       flash[:errors] = ["You have already made a request to collaborate on this project."]
     end
@@ -20,10 +20,10 @@ class CollaborationsController < ApplicationController
     collaborations = Collaboration.find_by(id: params[:id])
     collaborations.status = params[:status]
     if collaborations.save && collaborations.status == 'approved'
-      flash[:success] = "You have approved the person"
+      flash[:notice] = "You have approved the person"
       redirect_to mailbox_inbox_path
     elsif collaborations.save && collaborations.status == 'denied'
-      flash[:success] = "You have denied the person"
+      flash[:notice] = "You have denied the person"
       redirect_to mailbox_inbox_path
     else
       flash[:errors] = collaboration.errors.full_messages
