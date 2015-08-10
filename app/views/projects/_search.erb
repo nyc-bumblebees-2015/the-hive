@@ -1,5 +1,5 @@
 <div class="project-form row">
-  <%= form_tag projects_results_path, :method => :get do %>
+  <%= form_tag projects_results_path, :method => :get, id: 'project_search_form' do %>
   <div class="form-field input-field col m5 s12">
     <%= label_tag(:search, "Zip Code:") %>
     <%= text_field_tag :search, params[:search] %>
