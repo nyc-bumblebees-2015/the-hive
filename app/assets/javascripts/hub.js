@@ -1,8 +1,10 @@
 $(document).on('ready',function(){
 	$('.location').click(function(){
+		$('.tags-search').css({"display":"none"});
 		$('.location-search').css({"display":""});
 	})
 	$('.tags').click(function(){
-		$('.tags-search').css({"display":""})
+		$('.tags-search').css({"display":""});
+		$('.location-search').css({"display":"none"});
 	})
 })
