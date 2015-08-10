@@ -34,12 +34,6 @@
 	<div class="date">End date: <%= @project.end_date %></div>
 <% end %>
 
-<div class="tags">
-	<% @project.tags.each do |tag| %>
-		<div class="tag"><%= link_to tag.name, tag_path(tag)%></div>
-		<% end %>
-</div>
-
 <div class="collaborators">Project collaborators:
 	<div>
 	<%= link_to @project.creator.username, user_path(@project.creator) %>
