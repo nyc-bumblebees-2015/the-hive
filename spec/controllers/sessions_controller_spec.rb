@@ -14,7 +14,21 @@ describe SessionsController do
       post :create, user:{username: user.username, password:'1234567'}
       expect(session[:user_id]).to be_nil
     end
+  end
 
+  describe 'DELETE #destroy' do
+    it 'clears the the session' do
+      delete :destroy, id: user
+      expect(session[:user_id]). to be_nil
+    end
+    it 'redirects to root path' do
+      delete :destroy, id: user
+      expect(response).to redirect_to root_path
+    end
+    it 'displays you have successfully logged out' do
+      delete :destroy, id: user
+      expect(flash[:notice]).to have_content("You have successfully logged out.")
+    end
   end
 
 end
