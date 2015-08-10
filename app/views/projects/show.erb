@@ -56,3 +56,8 @@
 		<%= render partial: 'conversations/form', locals: {recipient: @project.creator}%>
 	</div>
 </div>
+
+
+<% if user_can_edit?(@project)%>
+	<div class="link"><%= link_to "Edit project", edit_project_path(@project)%></div>
+<% end %>

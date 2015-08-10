@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :require_login, only: [:create, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_privileges, only: [:edit, :update]
 
   def index
     @projects = Project.all
@@ -80,6 +81,12 @@ private
 
   def project_params
     params.require(:project).permit(:title, :description, :start_date, :end_date, :status, :skills_desired, :repo_link).merge(creator_id: session[:user_id])
+  end
+
+  def check_privileges
+    unless current_user.id == Project.find_by(id: params[:id]).creator_id
+     redirect_to root_path, notice: "not authorized!" 
+    end
   end
 
 end
