@@ -31,7 +31,11 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find_by(id: params[:id])
-    @active_collaborators = @project.collaborators_with_status("approved")
+    if @project.nil?
+      redirect_to :root, notice: "Project doesn't exist."
+    else
+      @active_collaborators = @project.collaborators_with_status("approved")
+    end
   end
 
   def edit
