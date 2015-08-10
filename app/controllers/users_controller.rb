@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show, :edit, :update]
+  before_action :check_privileges, only: [:edit, :update]
 
 	def new
 		@user = User.new
@@ -16,14 +18,12 @@ class UsersController < ApplicationController
 	end
 
   def show
-    require_login
     @user = User.find_by(id: params[:id])
     @projects_created = @user.projects_created
     @projects_collaborated_on = @user.approved_collaborations
   end
 
   def edit
-    require_login
     @user = User.find_by(id: params[:id])
   end
 
@@ -44,4 +44,11 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :first_name, :last_name, :email, :username, :zip_code, :bio, :github_link, :website_link)
   end
+
+  def check_privileges
+    unless current_user.id == params[:id].to_i
+     redirect_to root_path, notice: "not authorized!" 
+    end
+  end
+
 end
