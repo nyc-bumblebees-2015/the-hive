@@ -3,14 +3,12 @@
   <% message = receipt.message %>
   <div class="message row">
     <div class="msg-headers col s2">
-
     <h3><%= link_to message.sender.username, user_path(message.sender) %></h3>
     <div class="date">
       <%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %>
     </div>
     </div>
     <div class="msg-content col s10">
-      <h4><%= message.subject %></h4>
       <div class="body">
         <%= message.body %>
       </div>
