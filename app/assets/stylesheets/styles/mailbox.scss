@@ -16,22 +16,7 @@
   }
 }
 
-.conversation {
-  background-color: $panel-color;
-  padding:10px;
-  margin-top:10px;
-
-  h3.subject {
-    margin:0;
-  }
-
-  .body {
-    padding:15px;
-
-  }
-}
-
-.message-thread{
+.conversation, .message-thread {
   margin-top:10px;
 
   .message{
@@ -40,6 +25,14 @@
     &:nth-child(even){
       background-color:$nav-color;
     }
+  }
+
+  h3, h4 {
+    margin:0
+  }
+
+  .date {
+    font-size:0.85em;
   }
 
 }
