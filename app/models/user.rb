@@ -31,4 +31,10 @@ class User < ActiveRecord::Base
   def mailboxer_email(object)
     nil
   end
+
+  def pending_requests_for_projects
+    Collaboration.joins(:project)
+    .select("projects.creator_id, collaborations.*")
+    .where("collaborations.status='pending' AND projects.creator_id=#{self.id}")
+  end
 end

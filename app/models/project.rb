@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+
   belongs_to :creator, class_name: "User"
   has_many :project_tags
   has_many :tags, through: :project_tags
@@ -19,6 +20,10 @@ class Project < ActiveRecord::Base
     User.joins(:collaborations)
     .select("collaborations.project_id, collaborations.status, users.*")
     .where("status='#{status}' AND project_id=#{self.id}")
+  end
+
+  def collaborations_with_status(status)
+    Collaboration.where("status='#{status}' AND project_id=#{self.id}")
   end
 
 end
