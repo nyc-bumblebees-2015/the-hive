@@ -8,8 +8,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest, null: false
       t.text :bio, default: nil
       t.string :zip_code, null: false
-      t.float :longitude, null: false
-      t.float :latitude, null: false
+      t.float :longitude
+      t.float :latitude
       t.string :github_link, default: nil
       t.string :website_link, default: nil
 

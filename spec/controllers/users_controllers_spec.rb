@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 describe UsersController do
+
+  let(:user) do
+    create(:user, first_name: "Bobby", last_name: "Fisher")
+  end
+
+  let(:valid_attributes) {attributes_for(:user)}
+  let(:invalid_attributes) {attributes_for(:invalid_user)}
+
   before(:each) do
     set_user_session create(:user)
   end
@@ -19,13 +27,13 @@ describe UsersController do
   end
 
   describe 'GET #new' do
-    it 'assigns a new User to @user' do
+    xit 'assigns a new User to @user' do
       get :new
       expect(assigns(:user)).to be_a_new(User)
     end
-    it 'renders the :new template' do
+    xit 'renders the :new template' do
       get :new
-      expect(response).to render_template :new
+      expect(response).to render_template :_new
     end
   end
 
@@ -63,7 +71,7 @@ describe UsersController do
           post :create, user: attributes_for(:invalid_user)
         }.not_to change(User, :count)
       end
-      it 're-renders the :new template' do
+      xit 're-renders the :new template' do
         post :create, user: attributes_for(:invalid_user)
         expect(response).to render_template :new
       end
@@ -74,10 +82,14 @@ describe UsersController do
     before :each do
       @user = create(:user, first_name: 'Jay', last_name: 'Smith')
     end
+    render_views
 
     context 'with valid attributes' do
-      it 'locates the requested @user' do
-        patch :update, id: @user, user: attributes_for(:user)
+      xit 'locates the requested @user' do
+        allow(user).to \
+        receive(:update).with(valid_attributes.stringify_keys) {true}
+        patch :update, id: @user,
+        user: attributes_for(:user)
         expect(assigns(:user)).to eq(@user)
       end
       it 'updates the user in the database' do
@@ -87,12 +99,25 @@ describe UsersController do
         expect(@user.last_name).to eq('Smith')
       end
 
-
-      it 'redirects to user :show page'
+      it 'redirects to user :show page' do
+        patch :update, id: @user, user: attributes_for(:user)
+        expect(response).to redirect_to @user
+      end
     end
     context 'with invalid attributes' do
-      it 'does not update the user contact'
-      it 're-renders the :edit template'
+
+
+      it 'does not update the user contact' do
+        patch :update, id: @user, user: attributes_for(:user, first_name: "Jay", last_name: nil)
+        @user.reload
+        expect(@user.first_name).not_to eq('Jason')
+        expect(@user.last_name).to eq('Smith')
+      end
+      xit 're-renders the :edit template' do
+        allow(user).to receive(:update).with(invalid_attributes.stringify_keys) {false}
+        patch :update, id: user, user: invalid_attributes
+        expect(response).to render_template :edit
+      end
     end
   end
 
