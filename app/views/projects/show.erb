@@ -25,13 +25,14 @@
 <h3>Technologies Used:</h3>
 <div class="tags">
 	<% @project.tags.each do |tag| %>
-		<div class="tag"><%= link_to tag.name, tag_path(tag)%></div>
+<div class="tag"><%= link_to tag.name, tag_path(tag)%></div>
 	<% end %>
 </div>
 
 <% if @project.start_date %>
 	<div class="date">Start date: <%= @project.start_date %></div>
 <% end %>
+
 <% if @project.end_date %>
 	<div class="date">End date: <%= @project.end_date %></div>
 <% end %>
@@ -53,6 +54,6 @@
 
 <div id="msg" class="modal">
 	<div class="modal-content">
-		<%= render partial: 'conversations/form', locals: {recipient: @project.creator}%>
+		<%= render partial: 'conversations/form', locals: {recipient: @project.creator, project: @project.id}%>
 	</div>
 </div>
