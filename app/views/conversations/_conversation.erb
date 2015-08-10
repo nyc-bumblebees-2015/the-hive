@@ -7,3 +7,30 @@
   </div>
   <%= link_to "View Conversation", conversation_path(conversation)  %>
 </div>
+
+<div>
+  <% if conversation.is_trashed?(current_user) %>
+    <%= link_to 'Untrash', untrash_conversation_path(conversation), method: :post %>
+  <% else %>
+    <%= link_to 'Move to trash', trash_conversation_path(conversation), method: :post, data: {confirm: 'Are you sure?'} %>
+  <% end %>
+</div>
+
+<div>
+  <%= render 'mailbox/folders' %>
+</div>
+
+<div>
+  <%= render partial: 'messages' %>
+</div>
+
+<div>
+  <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
+    <%= f.text_area :body, placeholder: "Reply Message", rows: 4 %>
+    <%= f.submit "Reply" %>
+  <% end %>
+</div>
+
+
+
+
