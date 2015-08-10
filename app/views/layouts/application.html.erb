@@ -13,8 +13,8 @@
 <%= render 'layouts/header' %>
 <div class="content">
   <div class="flash">
-    <% if flash[:success]%>
-      <div class="success light-green lighten-2"><%= flash[:success] %></div>
+    <% if flash[:notice]%>
+      <div class="success light-green lighten-2"><%= flash[:notice] %></div>
     <% end %>
     <% if flash[:errors]%>
       <% flash[:errors].each do |error| %>

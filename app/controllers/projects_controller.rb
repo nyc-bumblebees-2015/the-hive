@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :require_login, only: [:create, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_privileges, only: [:edit, :update]
 
   def index
     @projects = Project.all
@@ -30,7 +31,11 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find_by(id: params[:id])
-    @active_collaborators = @project.collaborators_with_status("approved")
+    if @project.nil?
+      redirect_to :root, notice: "Project doesn't exist."
+    else
+      @active_collaborators = @project.collaborators_with_status("approved")
+    end
   end
 
   def edit
@@ -54,7 +59,7 @@ class ProjectsController < ApplicationController
       end
       redirect_to @project, notice: "Project updated successfully"
     else
-      flash[:errors] = @project.errors.full_messages
+      flash.now[:errors] = @project.errors.full_messages
       render :edit
     end
   end
@@ -80,6 +85,12 @@ private
 
   def project_params
     params.require(:project).permit(:title, :description, :start_date, :end_date, :status, :skills_desired, :repo_link).merge(creator_id: session[:user_id])
+  end
+
+  def check_privileges
+    unless current_user.id == Project.find_by(id: params[:id]).creator_id
+     redirect_to root_path, notice: "not authorized!" 
+    end
   end
 
 end
