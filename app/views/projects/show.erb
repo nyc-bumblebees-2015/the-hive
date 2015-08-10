@@ -53,6 +53,6 @@
 
 <div id="msg" class="modal">
 	<div class="modal-content">
-		<%= render partial: 'conversations/form', locals: {recipient: @project.creator}%>
+		<%= render partial: 'conversations/form', locals: {recipient: @project.creator, project: @project.id}%>
 	</div>
 </div>

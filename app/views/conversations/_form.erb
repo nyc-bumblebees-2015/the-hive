@@ -1,6 +1,7 @@
 <div class="row">
   <%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
         <%= f.hidden_field :recipient_id, :value => recipient.id %>
+        <%= f.hidden_field :project, :value => project %>
       <div class="form-group input-field col s12">
         <%= f.text_field :subject, placeholder: "Subject" %>
       </div>
