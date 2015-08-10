@@ -19,10 +19,10 @@ class User < ActiveRecord::Base
   has_many :projects_collaborated_on, through: :collaborations, source: :project
 
 
-  def gravatar_url
+  def gravatar_url(size = 200)
     default_url = "http://i60.tinypic.com/27yoagy.png"
     gravatar_id = Digest::MD5::hexdigest(self.email.downcase)
-    "http://secure.gravatar.com/avatar/#{gravatar_id}?s=200&d=#{CGI.escape(default_url)}"
+    "http://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size.to_s}"
   end
 
   def mailboxer_name
