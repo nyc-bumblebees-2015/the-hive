@@ -12,7 +12,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if current_user %>
 <%= render 'layouts/header' %>
+<% else %>
 <div class="content">
   <div class="flash">
     <% if flash[:notice]%>
@@ -26,6 +28,6 @@
   </div>
   <%= yield %>
 </div>
-
+<% end %>
 </body>
 </html>
