@@ -38,6 +38,7 @@
 	<% @project.tags.each do |tag| %>
 		<div class="tag"><%= link_to tag.name, tag_path(tag)%></div>
 		<% end %>
+</div>
 
 <div class="collaborators">Project collaborators:
 	<div>
@@ -49,7 +50,6 @@
 					<%= link_to collaborator.username, user_path(collaborator) %>
 				<% end %>
 			</div>
-
 	<% end %>
 </div>
 
