@@ -1,6 +1,6 @@
 <div class="mailbox row">
-  <%= render 'mailbox/folders' %>
-  <div class="mailbox-messages right col s11">
+  <%= render "mailbox/folders" %>
+  <div class="mailbox-messages right col s12 t10 l10">
     <% if @pending_requests %>
       <% @pending_requests.each do |req| %>
       <div class="pending-request row">
