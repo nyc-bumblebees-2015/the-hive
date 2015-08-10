@@ -31,4 +31,10 @@ class User < ActiveRecord::Base
   def mailboxer_email(object)
     nil
   end
+
+  def approved_collaborations
+    Project.joins(:collaborations)
+    .select("collaborations.status, collaborations.collaborator_id, projects.*")
+    .where("collaborations.status='approved' AND collaborator_id=#{self.id}")
+  end
 end

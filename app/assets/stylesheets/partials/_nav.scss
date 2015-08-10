@@ -21,11 +21,14 @@ nav {
 
   li { 
     list-style-type: none;
-  }
+    }
 
-  li#name img{
-    max-height:65px;
-    padding:5px;
+  li#name{
+    max-height: 65px;
+    img{
+      max-height:65px;
+      padding:5px;
+    }
   }
 
   li.profile i {

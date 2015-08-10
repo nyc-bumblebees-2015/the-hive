@@ -1,31 +1,33 @@
 
-<% if @project.creator != current_user%>
-	<div class="request-collaboration">
-		<%= button_to "Collaborate on this project!", "/projects/#{@project.id}/collaborations" %>
-	</div>
-<% end %>
+<div class="contact right">
+	<% if @project.creator != current_user%>
+		<div class="request-collaboration">
+			<%= button_to "Collaboration Request", "/projects/#{@project.id}/collaborations", class: "btn"  %>
+		</div>
 
-<h2><%= @project.title%></h2>
+		<%= link_to "Message Project Owner", "#msg", class: "btn modal-trigger" %>
+	<% end %>
+</div>
+
+<h1><%= @project.title%></h1>
 <div class="project-desc">
 	<%= @project.description%>
 </div>
 
 <div class="status">
-	Status: <%= @project.status %>
+	<h4>Status: <span class="project-status"><%= @project.status %></span></h4>
 </div>
+<h3>Skills desired:</h3>
 <div class="requirement">
-	Skills desired: <%= @project.skills_desired %>
+	<%= @project.skills_desired %>
 </div>
 
+<h3>Technologies Used:</h3>
 <div class="tags">
 	<% @project.tags.each do |tag| %>
 		<div class="tag"><%= link_to tag.name, tag_path(tag)%></div>
 	<% end %>
 </div>
-
-<% if @project.repo_link %>
-	<div class="link"><%= link_to "Github", @project.repo_link %></a></div>
-<% end %>
 
 <% if @project.start_date %>
 	<div class="date">Start date: <%= @project.start_date %></div>
@@ -34,14 +36,11 @@
 	<div class="date">End date: <%= @project.end_date %></div>
 <% end %>
 
-<div class="tags">
-	<% @project.tags.each do |tag| %>
-		<div class="tag"><%= link_to tag.name, tag_path(tag)%></div>
-		<% end %>
-
-<div class="collaborators">Project collaborators:
+<div class="collaborators">
+ <h3>Project collaborators:</h3>
 	<div>
 	<%= link_to @project.creator.username, user_path(@project.creator) %>
+	<span class="creator">(PROJECT OWNER)</span>
 	</div>
 	<% unless @active_collaborators.empty? %>
 			<div>
@@ -49,10 +48,13 @@
 					<%= link_to collaborator.username, user_path(collaborator) %>
 				<% end %>
 			</div>
-
 	<% end %>
 </div>
 
-<%= render partial: 'conversations/form', locals: {recipient: @project.creator}%>
+<div id="msg" class="modal">
+	<div class="modal-content">
+		<%= render partial: 'conversations/form', locals: {recipient: @project.creator}%>
+	</div>
+</div>
 
 
