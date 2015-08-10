@@ -1,55 +1,15 @@
-<div class="contact right">
-	<% if @project.creator != current_user%>
-		<div class="request-collaboration">
-			<%= button_to "Collaboration Request", "/projects/#{@project.id}/collaborations", class: "btn"  %>
-		</div>
 
-		<%= link_to "Message Project Owner", "#msg", class: "btn modal-trigger" %>
-	<% end %>
-</div>
+<div class="right sidebar">
+	<div class="contact">
+		<% if @project.creator != current_user%>
+			<div class="request-collaboration">
+				<%= button_to "Collaboration Request", "/projects/#{@project.id}/collaborations", class: "btn"  %>
+			</div>
 
-<div class="project-header row">
-	<h1><%= @project.title%></h1> 
-	<% if user_can_edit?(@project)%>
-	<div class="edit-links">
-			<%= link_to edit_project_path(@project), class: "btn-flat" do %>
-				<i class="material-icons">mode edit</i>
-			<% end %> 
-		<%= link_to @project, method: :delete, class: "btn-flat" do %>
-			<i class="material-icons">delete</i>
+			<%= link_to "Message Project Owner", "#msg", class: "btn modal-trigger" %>
 		<% end %>
 	</div>
-<% end %>
-
-</div>
-<div class="project-desc">
-	<%= @project.description%>
-</div>
-
-<div class="status">
-	<h4>Status: <span class="project-status"><%= @project.status %></span></h4>
-</div>
-<h3>Skills desired:</h3>
-<div class="requirement">
-	<%= @project.skills_desired %>
-</div>
-
-<h3>Technologies Used:</h3>
-<div class="tags">
-	<% @project.tags.each do |tag| %>
-<div class="tag"><%= link_to tag.name, tag_path(tag)%></div>
-	<% end %>
-</div>
-
-<% if @project.start_date %>
-	<div class="date">Start date: <%= @project.start_date %></div>
-<% end %>
-
-<% if @project.end_date %>
-	<div class="date">End date: <%= @project.end_date %></div>
-<% end %>
-
-<div class="collaborators">
+	<div class="collaborators">
  <h3>Project collaborators:</h3>
 	<div>
 	<%= link_to @project.creator.username, user_path(@project.creator) %>
@@ -61,6 +21,51 @@
 					<%= link_to collaborator.username, user_path(collaborator) %>
 				<% end %>
 			</div>
+	<% end %>
+</div>
+
+</div>
+
+<div class="left project-main">
+	<div class="project-header row">
+		<h1><%= @project.title%></h1> 
+		<% if user_can_edit?(@project)%>
+		<div class="edit-links">
+				<%= link_to edit_project_path(@project), class: "btn-flat" do %>
+					<i class="material-icons">mode edit</i>
+				<% end %> 
+			<%= link_to @project, method: :delete, class: "btn-flat" do %>
+				<i class="material-icons">delete</i>
+			<% end %>
+		</div>
+	<% end %>
+
+	</div>
+	<div class="project-desc">
+		<%= @project.description%>
+	</div>
+
+	<div class="status">
+		<h4>Status: <span class="project-status"><%= @project.status %></span></h4>
+	</div>
+	<h3>Skills desired:</h3>
+	<div class="requirement">
+		<%= @project.skills_desired %>
+	</div>
+
+	<h3>Technologies Used:</h3>
+	<div class="tags">
+		<% @project.tags.each do |tag| %>
+	<div class="tag"><%= link_to tag.name, tag_path(tag)%></div>
+		<% end %>
+	</div>
+
+	<% if @project.start_date %>
+		<div class="date">Start date: <%= @project.start_date %></div>
+	<% end %>
+
+	<% if @project.end_date %>
+		<div class="date">End date: <%= @project.end_date %></div>
 	<% end %>
 </div>
 
