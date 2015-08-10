@@ -1,4 +1,3 @@
-
 <div class="contact right">
 	<% if @project.creator != current_user%>
 		<div class="request-collaboration">
@@ -9,7 +8,20 @@
 	<% end %>
 </div>
 
-<h1><%= @project.title%></h1>
+<div class="project-header row">
+	<h1><%= @project.title%></h1> 
+	<% if user_can_edit?(@project)%>
+	<div class="edit-links">
+			<%= link_to edit_project_path(@project), class: "btn-flat" do %>
+				<i class="material-icons">mode edit</i>
+			<% end %> 
+		<%= link_to @project, method: :delete, class: "btn-flat" do %>
+			<i class="material-icons">delete</i>
+		<% end %>
+	</div>
+<% end %>
+
+</div>
 <div class="project-desc">
 	<%= @project.description%>
 </div>
@@ -57,9 +69,3 @@
 		<%= render partial: 'conversations/form', locals: {recipient: @project.creator, project: @project.id}%>
 	</div>
 </div>
-
-
-<% if user_can_edit?(@project)%>
-	<div class="link"><%= link_to "Edit project", edit_project_path(@project)%></div>
-	<div><%= link_to "Delete project", @project, method: :delete %></div>
-<% end %>
