@@ -43,3 +43,10 @@
   }
 
 }
+
+.trash {
+  background-color: $background-color;
+  &:hover {
+    background-color:$danger-color;
+  }
+}
