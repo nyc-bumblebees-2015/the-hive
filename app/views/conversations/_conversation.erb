@@ -1,27 +1,9 @@
-
-    <h4>
-      <%= conversation.originator.username %> <br>
-      <small><b>Subject: </b><%= conversation.subject %></small><br>
-      <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-    </h4>
-    <div id='message'>
-      <%= truncate conversation.messages.last.body, length: 145 %>
-    </div>
-      <%= link_to "View", conversation_path(conversation)  %>
-
-    <% if conversation.is_trashed?(current_user) %>
-        <%= link_to 'Untrash', untrash_conversation_path(conversation), class: 'btn btn-info', method: :post %>
-    <% else %>
-        <%= link_to 'Move to trash', trash_conversation_path(conversation), class: 'btn btn-danger', method: :post,
-                    data: {confirm: 'Are you sure?'} %>
-    <% end %>
-
-
-
-
-
-
-      <% if conversation.messages.last.body.include?('requested to join') %>
-      <% else %>
-      <% end %>
-
+<div class="conversation">
+  <h3 class="subject"><%= conversation.subject %></h3>
+  <h4 class="sender">From: <%= conversation.originator.username %></h4>
+  <b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %>
+  <div class="body">
+    <%= truncate conversation.messages.last.body, length: 145 %>
+  </div>
+  <%= link_to "View Conversation", conversation_path(conversation)  %>
+</div>
