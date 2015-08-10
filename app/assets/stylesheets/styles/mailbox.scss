@@ -14,6 +14,10 @@
   .unread {
     color: $dark-accent-color;
   }
+
+  .active a {
+    color: $accent-color;
+  }
 }
 
 .conversation, .message-thread {
