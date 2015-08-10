@@ -20,8 +20,9 @@ class User < ActiveRecord::Base
 
 
   def gravatar_url
+    default_url = "http://i60.tinypic.com/27yoagy.png"
     gravatar_id = Digest::MD5::hexdigest(self.email.downcase)
-    "http://secure.gravatar.com/avatar/#{gravatar_id}?s=200"
+    "http://secure.gravatar.com/avatar/#{gravatar_id}?s=200&d=#{CGI.escape(default_url)}"
   end
 
   def mailboxer_name

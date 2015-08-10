@@ -1,11 +1,15 @@
+<div class="mailbox row">
 <%= render 'mailbox/folders' %>
-
-<%= render partial: 'messages' %>
-<%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
-<div class="row">
-<div class="form-group input-field col s12">
-<%= f.text_area :body, placeholder: "Reply Message", rows: 4, class: "form-control", class: "materialize-textarea"   %>
+<div class="conversation-messages right col s12 t10 l10">
+  <h3><%= conversation.subject %></h3>
+  <%= render partial: 'messages' %>
+  <div class="reply row">
+  <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
+    <div class="form-group input-field col s12">
+    <%= f.text_area :body, placeholder: "Reply Message", rows: 4, class: "form-control", class: "materialize-textarea"   %>
+    </div>
+    <%= f.submit "Reply", class: 'btn btn-danger pull-right' %>
+    <% end %>
+  </div>
 </div>
-<%= f.submit "Reply", class: 'btn btn-danger pull-right' %>
-<% end %>
 </div>
