@@ -14,11 +14,11 @@
 <div class="content">
   <div class="flash">
     <% if flash[:success]%>
-      <div class="success"><%= flash[:success] %></div>
+      <div class="success light-green lighten-2"><%= flash[:success] %></div>
     <% end %>
     <% if flash[:errors]%>
       <% flash[:errors].each do |error| %>
-        <div class="error"><%= error %></div>
+        <div class="error red lighten-1"><%= error %></div>
       <% end %>
     <% end %>
   </div>

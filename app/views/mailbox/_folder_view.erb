@@ -1,14 +1,21 @@
-<%= render 'mailbox/folders' %>
 
-<% if @collaborations %>
-  <% @collaborations.each do |x| %>
-  <%= x.project.title %>
-  <%= x.collaborator.username %>
-  <%= button_to 'Approve', project_collaboration_path(x.project, x), method: 'patch', params:{status: 'approved'} %>
-  <%= button_to 'Deny', project_collaboration_path(x.project, x), method: 'patch', params:{status: 'denied'} %>
-  <% end %>
+<% if @pending_requests %>
+  <% @pending_requests.each do |req| %>
+  <div class="pending-request row">
+    <div class="request-info col s6">
+    <h4><%= link_to req.collaborator.username, user_path(req.collaborator) %> is requesting to collaborate on <%= link_to req.project.title, project_path(req.project.title) %></h4>
+    </div>
+    <div class="col s2">
+    <%= button_to 'Approve', project_collaboration_path(req.project, req), method: 'patch', params:{status: 'approved'}, class: "btn" %>
+    </div>
+    <div class="col s2">
+    <%= button_to 'Deny', project_collaboration_path(req.project, req), method: 'patch', params:{status: 'denied'}, class: "btn" %>
+    </div>
+    <% end %>
+  </div>
 <% end %>
 
+<%= render 'mailbox/folders' %>
 <% if is_conversation %>
   <%= render 'conversations/form' %>
 <% else %>

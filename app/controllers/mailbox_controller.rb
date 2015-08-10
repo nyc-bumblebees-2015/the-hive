@@ -2,10 +2,9 @@ class MailboxController < ApplicationController
   before_action :require_login
 
   def inbox
-    @collaborations = current_user.pending_requests_for_projects
+    @pending_requests = current_user.pending_requests_for_projects
     @inbox = mailbox.inbox
     @active = :inbox
-
   end
 
   def sent
