@@ -7,10 +7,11 @@
   </div>
   <%= link_to "View Conversation", conversation_path(conversation)  %>
 
-<div class="trash">
-  <%= link_to trash_conversation_path(conversation), class: 'btn btn-floating', method: :post, data: {confirm: 'Are you sure?'} do %>
-    <i class="material-icons">delete</i>
-  <% end %>
- </div>
+  <div class="action-links">
+    <%unless conversation.is_trashed?(current_user) %>
+      <%= link_to trash_conversation_path(conversation), class: 'btn btn-floating trash', method: :post, data: {confirm: 'Are you sure?'} do %>
+        <i class="material-icons">delete</i>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-
