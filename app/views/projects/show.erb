@@ -60,4 +60,5 @@
 
 <% if user_can_edit?(@project)%>
 	<div class="link"><%= link_to "Edit project", edit_project_path(@project)%></div>
+	<div><%= link_to "Delete project", @project, method: :delete %></div>
 <% end %>
