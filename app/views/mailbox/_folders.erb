@@ -1,20 +1,14 @@
-<ul>
-  <h3>Welcome to your Mailbox</h3>
-  <li class="<%= active_page(:inbox) %>">
+<ul class="folders tabs">
+  <li class="<%= active_page(:inbox) %> tab col s3">
     <%= link_to mailbox_inbox_path do  %>
-        <span><%=unread_messages_count%></span>
+        <span class="unread"><%=unread_messages_count%></span>
         <span>Inbox</span>
     <% end %>
   </li>
-  <li class="<%= active_page(:sent) %>">
-    <%= link_to mailbox_sent_path do %>
-        <span>Sent</span>
-    <% end %>
+  <li class="<%= active_page(:sent) %> tab col s3">
+    <%= link_to "SENT", mailbox_sent_path %>
   </li>
-
-  <li class="<%= active_page(:trash) %>">
-    <%= link_to mailbox_trash_path do %>
-        <span>Trash</span>
-    <% end %>
+  <li class="<%= active_page(:trash) %> tab col s3">
+    <%= link_to "TRASH", mailbox_trash_path %>
   </li>
 </ul>

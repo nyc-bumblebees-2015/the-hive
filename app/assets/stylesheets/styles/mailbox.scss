@@ -1,0 +1,45 @@
+.folders {
+  background-color: $background-color;
+
+  .tab a {
+    color: $accent-color;
+    &:hover {
+      color: $dark-accent-color;
+    }
+  }
+  .indicator {
+    background-color: $accent-color;
+  }
+
+  .unread {
+    color: $dark-accent-color;
+  }
+}
+
+.conversation {
+  background-color: $panel-color;
+  padding:10px;
+  margin-top:10px;
+
+  h3.subject {
+    margin:0;
+  }
+
+  .body {
+    padding:15px;
+
+  }
+}
+
+.message-thread{
+  margin-top:10px;
+
+  .message{
+    padding:10px;
+    background-color:$panel-color;
+    &:nth-child(even){
+      background-color:$nav-color;
+    }
+  }
+
+}

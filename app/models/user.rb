@@ -37,4 +37,11 @@ class User < ActiveRecord::Base
     .select("projects.creator_id, collaborations.*")
     .where("collaborations.status='pending' AND projects.creator_id=#{self.id}")
   end
+
+  def approved_collaborations
+    Project.joins(:collaborations)
+    .select("collaborations.status, collaborations.collaborator_id, projects.*")
+    .where("collaborations.status='approved' AND collaborator_id=#{self.id}")
+  end
+  
 end

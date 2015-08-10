@@ -29,14 +29,19 @@ h2 {
 }
 
 h3 {
-  font-size:1.5em
+  font-size:1.5em;
+}
+
+h4 {
+  font-size:1.25em;
+  color: $text-color;
 }
 
 .content {
   width:90%;
   max-width:1280px;
   margin:0 auto;
-  padding-top:20px;
+  margin-top:20px;
 }
 
 .left {

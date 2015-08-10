@@ -4,7 +4,6 @@
 	<% else %>
 		<% @projects.each do |project| %>
 		  <%= render partial: 'project', locals: { project: project} %>
-		  <div class="project-result"><%= project.creator.username %></div>
 		<% end %>
 	<% end %>
 </ul>

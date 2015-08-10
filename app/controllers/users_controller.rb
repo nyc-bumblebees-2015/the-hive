@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     require_login
     @user = User.find_by(id: params[:id])
     @projects_created = @user.projects_created
-    @projects_collaborated_on = @user.projects_collaborated_on
+    @projects_collaborated_on = @user.approved_collaborations
   end
 
   def edit
