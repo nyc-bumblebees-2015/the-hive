@@ -7,3 +7,4 @@ class HubController < ApplicationController
       @user = current_user
     end
   end
+end

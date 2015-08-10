@@ -1,10 +1,12 @@
 <%= render 'mailbox/folders' %>
 
-<% @collaborations.each do |x| %>
-<%= x.project.title %>
-<%= x.collaborator.username %>
-<%= button_to 'Approve', project_collaboration_path(x.project, x), method: 'patch', params:{status: 'approved'} %>
-<%= button_to 'Deny', project_collaboration_path(x.project, x), method: 'patch', params:{status: 'denied'} %>
+<% if @collaborations %>
+  <% @collaborations.each do |x| %>
+  <%= x.project.title %>
+  <%= x.collaborator.username %>
+  <%= button_to 'Approve', project_collaboration_path(x.project, x), method: 'patch', params:{status: 'approved'} %>
+  <%= button_to 'Deny', project_collaboration_path(x.project, x), method: 'patch', params:{status: 'denied'} %>
+  <% end %>
 <% end %>
 
 <% if is_conversation %>

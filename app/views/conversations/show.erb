@@ -1,5 +1,5 @@
-
 <%= render 'mailbox/folders' %>
+
 <%= render partial: 'messages' %>
 <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
 <div class="form-group">

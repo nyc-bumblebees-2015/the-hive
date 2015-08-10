@@ -7,9 +7,21 @@
     <div id='message'>
       <%= truncate conversation.messages.last.body, length: 145 %>
     </div>
-      <% if conversation.messages.last.body.include?('requested to join') %>
+      <%= link_to "View", conversation_path(conversation)  %>
 
+    <% if conversation.is_trashed?(current_user) %>
+        <%= link_to 'Untrash', untrash_conversation_path(conversation), class: 'btn btn-info', method: :post %>
+    <% else %>
+        <%= link_to 'Move to trash', trash_conversation_path(conversation), class: 'btn btn-danger', method: :post,
+                    data: {confirm: 'Are you sure?'} %>
+    <% end %>
+
+
+
+
+
+
+      <% if conversation.messages.last.body.include?('requested to join') %>
       <% else %>
-        <%= link_to "View", conversation_path(conversation)  %>
       <% end %>
 
