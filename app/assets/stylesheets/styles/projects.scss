@@ -21,3 +21,9 @@
     padding:0;
   }
 }
+
+.project:after {
+  clear:both;
+  display:block;
+  content:"";
+}
