@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :mailbox, :conversation, :can_edit?
+  helper_method :mailbox, :conversation
 
   def current_user
     User.find_by(id: session[:user_id])
