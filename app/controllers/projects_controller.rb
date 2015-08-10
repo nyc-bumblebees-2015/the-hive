@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
       end
       redirect_to @project, notice: "Project updated successfully"
     else
-      flash[:errors] = @project.errors.full_messages
+      flash.now[:errors] = @project.errors.full_messages
       render :edit
     end
   end

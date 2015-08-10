@@ -29,9 +29,9 @@ class UsersController < ApplicationController
 
   def update
     user = User.find_by(id: params[:id])
-    user.update_attributes(user_params)
+    user.assign_attributes(user_params)
     if user.save
-      flash[:success] = "Your profile has been updated!"
+      flash[:notice] = "Your profile has been updated!"
       redirect_to user_path(user)
     else
       flash[:errors] = user.errors.full_messages
