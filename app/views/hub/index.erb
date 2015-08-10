@@ -1,15 +1,23 @@
-<h2>Projects near you: </h2>
-<ul>
-	<% @projects.each do |project|%>
-		<div class = "project-result"><%= render partial: 'projects/project', locals: { project: project} %></div>
-	<% end %>
-</ul>
-
-<div class='dropdown'>
-	<button type="button" class="location"> Location</button>
-	<button type="button" class="tags">Tag</button>
-	
-<div class="toggle location-search" style="display:none;"><%= render partial: "projects/search", layout: false %></div>
-<div class="toggle tags-search" style="display:none;"><%= render partial: 'tags/display', locals: {tags: @tags}%></div>
+<div class="search right">
+  <a class="waves-effect waves-light btn location" href="#">Search by Location</a>
+  <a class="waves-effect waves-light btn tags" href="#">Search by Tags</a>
 </div>
+<div class="hub-main">
+  <div class="near-you">
+    <h2>Projects near you: </h2>
 
+    <% if @projects.empty? %>
+      <em>Sorry, there are no projects near you.</em>
+    <% else %>
+      <ul>
+      	<% @projects.each do |project|%>
+      		<div class = "project-result"><%= render partial: 'projects/project', locals: { project: project} %></div>
+      	<% end %>
+      </ul>
+    <% end %>
+  </div>
+  <div class='dropdown'>
+    <div class="toggle location-search" style="display:none;"><%= render partial: "projects/search", layout: false %></div>
+    <div class="toggle tags-search" style="display:none;"><%= render partial: 'tags/display', locals: {tags: @tags}%></div>
+  </div>
+  </div>
