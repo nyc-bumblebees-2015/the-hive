@@ -5,9 +5,9 @@ class HubController < ApplicationController
       render :splash
     else
       @user = current_user
-      @users_near_me = User.near(current_user.zip_code, 10, :order => 'distance').where.not(:id => current_user.id)
+      @users_near_me = User.near(current_user.zip_code, 20, :order => 'distance').where.not(:id => current_user.id)
       @projects = []
-    	@users_near_me.each do |user| 
+    	@users_near_me.each do |user|
       	user.projects_created.each do |project|
         	@projects << project
       	end
