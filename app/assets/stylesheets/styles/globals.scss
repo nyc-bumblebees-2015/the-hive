@@ -5,7 +5,7 @@ body {
   color: $text-color;
 }
 
-a { 
+a {
   text-decoration: none;
   color: $accent-color;
 
@@ -42,6 +42,19 @@ h4 {
   max-width:1280px;
   margin:0 auto;
   margin-top:20px;
+}
+
+.splash-background {
+  background-image: url('backsplash.jpeg');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
 }
 
 .left {
