@@ -1,9 +1,9 @@
-
-    <h4>
-      <%= conversation.originator.username %> <br>
-      <small><b>Subject: </b><%= conversation.subject %></small><br>
-      <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-    </h4>
+<div class="conversation">
+  <h3 class="subject"><%= conversation.subject %></h3>
+  <h4 class="sender">From: <%= conversation.originator.username %></h4>
+  <b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %>
+  <div class="body">
     <%= truncate conversation.messages.last.body, length: 145 %>
-    <%= link_to "View", conversation_path(conversation)  %>
   </div>
+  <%= link_to "View Conversation", conversation_path(conversation)  %>
+</div>

@@ -1,9 +1,13 @@
+<div class="message-thread">
 <% @receipts.each do |receipt| %>
   <% message = receipt.message %>
-    <h4>
-      <%= message.sender.username %> <br>
-      <small><b>Subject: </b><%= message.subject %></small><br>
-      <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-    </h4>
-  <%= message.body %>
+  <div class="message">
+    From: <%= link_to message.sender.username, user_path(message.sender) %> <br>
+    <b>Subject: </b><%= message.subject %><br>
+    <b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %>
+    <div class="body">
+      <%= message.body %>
+    </div>
+  </div>
 <% end %>
+</div>
