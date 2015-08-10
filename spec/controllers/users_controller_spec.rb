@@ -4,10 +4,6 @@ describe UsersController do
 
   let(:user) { FactoryGirl.create(:user)}
 
-  # let(:user) do
-  #   create(:user, first_name: "Bobby", last_name: "Fisher")
-  # end
-
   let(:valid_attributes) {attributes_for(:user)}
   let(:invalid_attributes) {attributes_for(:invalid_user)}
 
