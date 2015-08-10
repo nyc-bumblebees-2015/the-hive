@@ -12,6 +12,7 @@
 
     <ul id="mobile-menu" class="side-nav">
       <li><%= link_to "Inbox", mailbox_inbox_path, class: "inbox"  %></li>
+      <li><%= link_to "My Profile & Projects", user_path(current_user), class: "profile"  %></li>
       <li><%= link_to "Add New Project", new_project_path, class: "new-project" %></li>
       <li><%= link_to "Edit Profile", edit_user_path(current_user), class: "edit-profile"  %></li>
       <li class="logout"><%= link_to "Logout", logout_path %></li>
