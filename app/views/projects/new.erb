@@ -40,3 +40,10 @@
   </div>
   <% end %>
 </div>
+
+<script>
+  var availableTags = new Array();
+  <% Tag.all_tags.each do |tag|%>;
+    availableTags.push("<%=tag%>");
+  <% end %>
+</script>

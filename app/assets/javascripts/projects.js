@@ -1,34 +1,4 @@
 $(document).ready(function(){
-  // $('.tags-input').on('keyup', function(event){
-  //   $self = $(this);
-  //   if (event.keyCode === 188) {
-  //   }
-  // });
-var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-
   function split(val) {
     return val.split(/,\s*/);
   }
@@ -52,8 +22,8 @@ var availableTags = [
       $('.tags-list').html(this.value);
     }, 
     open: function() {
-      $('.ui-menu').width('42%')
+      $('.ui-menu').width('42%');
     }  
-  })
+  });
 
 });
