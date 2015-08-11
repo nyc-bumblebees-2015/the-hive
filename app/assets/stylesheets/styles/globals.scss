@@ -1,7 +1,7 @@
 body {
   font-family: $main-font;
   font-size:14px;
-  background-color: $background-color;
+  background-color: white;
   color: $text-color;
 }
 
@@ -56,21 +56,9 @@ h4 {
   left: 0;
   right: 0;
   position: absolute;
-  z-index: -2;
 }
 
-.splash-background:after {
-  z-index: -1;
-  opacity: 0.3;
-  background-color: #FFFFD6;
-  display: block;
-  content: ' ';
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left:0;
-  position: absolute;
-}
+
 
 .login-links {
   z-index: 1;
