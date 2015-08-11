@@ -357,7 +357,7 @@
         label = $(this).val();
         selectedOption = options.find('li').filter(function() {
           return $(this).text().toLowerCase() === label.toLowerCase();
-        })[0];
+        });
         activateOption(options, selectedOption);
       });
 
