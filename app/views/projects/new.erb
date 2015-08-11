@@ -15,7 +15,7 @@
     <%= f.text_area :skills_desired, rows: 20, class: "materialize-textarea", placeholder: ""%>
   </div>
   <div class="form-field input-field col s6">
-    <%= f.label "Languages and/or frameworks used (separated by commas)*" %>
+    <%= f.label "Languages/frameworks (comma separated)*" %>
     <%= text_field_tag :tag_display, nil, class: "tags-input" %>
     <%= hidden_field_tag :tags, nil, class: "tags-value" %>
     <div class="tags-list"></div>
