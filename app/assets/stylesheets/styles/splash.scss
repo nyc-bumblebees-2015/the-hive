@@ -2,9 +2,10 @@
   text-align:center;
 }
 
-#splash-copy {
-  width: 400px;
-  height: 200px;
+#splash-copy-area {
+  padding-bottom: 20px;
+  width: 50%;
+  height: 50%;
   background-color: #080000 ;
   margin: 0 auto;
 }
@@ -12,4 +13,20 @@
 h1 {
   color: white;
   font-family: 'Slim Joe';
+}
+
+.big-header {
+  font-size: 5.0em;
+}
+
+.login-links {
+  float: right;
+}
+
+h1.copy {
+  font-family: "Roboto", sans-serif;
+}
+
+.splash {
+  padding: 15px;
 }
