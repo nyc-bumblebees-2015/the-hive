@@ -80,7 +80,7 @@ class ProjectsController < ApplicationController
       end
     end
     if request.xhr?
-      render partial: 'project', collection: @projects
+      render partial: 'projects/project', collection: @projects
     end
 
   end

@@ -3,7 +3,7 @@
     <span class="title card-title"><%= link_to project.title, project_path(project)%></span>
     <p><%= project.description %></p>
     <p>Project Lead: <%= project.creator.username %></p>
-    <p>City: <%= project.creator.zip_code %></p>
+    <p>City: <%= project.creator.location %></p>
  <div class="tags">
       <% project.tags.each do |tag| %>
         <div class="tag"><%= link_to tag.name, tag_path(tag), class: "tag"%></div>
