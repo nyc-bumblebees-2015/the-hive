@@ -10,6 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery2
 //= require jquery_ujs
+//= require bin/materialize.min.js
 //= require_tree .
+
+$(document).ready(function(){
+  $(".dropdown-button").dropdown();
+  $('.modal-trigger').leanModal();
+  $(".button-collapse").sideNav();
+  $('ul.tabs').tabs();
+  $('select').material_select();
+});

@@ -1,0 +1,68 @@
+body {
+  font-family: $main-font;
+  font-size:14px;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+a { 
+  text-decoration: none;
+  color: $accent-color;
+
+  &:hover {
+    color: $dark-accent-color;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: $main-font;
+  color: $accent-color;
+  font-weight:bold;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size:1.75em;
+}
+
+h3 {
+  font-size:1.5em;
+}
+
+h4 {
+  font-size:1.25em;
+  color: $text-color;
+}
+
+.content {
+  width:90%;
+  max-width:1280px;
+  margin:0 auto;
+  margin-top:20px;
+}
+
+.left {
+  float:left;
+}
+
+.right {
+  float:right;
+}
+
+ul {
+  margin:0;
+  padding:0;
+}
+
+.flash {
+  font-size:1.2em;
+  font-weight:bold;
+  text-decoration: italic;
+  color: $background-color;
+  div {
+    padding:10px;
+  }
+}

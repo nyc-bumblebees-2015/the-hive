@@ -1,0 +1,35 @@
+<div class="user-profile">
+
+  <div class="avatar left"><img src="<%= @user.gravatar_url %>" class="responsive-img circle"></div>
+  <div class="username"><%= @user.username %></div>
+
+  <div class="links">
+    <% if @user.github_link %>
+      <div class="github"><a href="<%= @user.github_link%>">GitHub</a></div>
+    <% end %>
+    <% if @user.website_link %>
+      <div class="website"><a href="<%= @user.website_link%>">Website</a></div>
+    <% end %>
+  </div>
+
+  <div class="bio"><%= @user.bio %></div>
+
+    <h3><%= @user.username %>'s projects</h3>
+  <div class="projects-created row">
+    <% if @projects_created.empty? %>
+      <em><%= @user.username %> has not created any projects</em>
+    <% else %>
+      <%= render @projects_created %>
+    <% end %>
+  </div>
+
+    <h3>Projects <%= @user.username %> is collaborating on</h3>
+  <div class="collaborating-on row">
+    <% if @projects_collaborated_on.empty?  %>
+     <em><%= @user.username %> is not collaborating on any projects</em>
+    <% else %>
+      <%= render @projects_collaborated_on %>
+    <% end %>
+  </div>
+
+</div>

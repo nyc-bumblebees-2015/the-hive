@@ -1,0 +1,11 @@
+.tags {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: $panel-color;
+  color: $accent-color;
+  padding: 3px;
+  margin: 5px;
+}

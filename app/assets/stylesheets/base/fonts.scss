@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Neuzeit";
+  src: font_url("Neuzeit_S_LT_Book.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neuzeit";
+  src: font_url("Neuzeit_S_LT_BookHeavy.ttf") format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+$main-font: "Neuzeit", sans-serif; 

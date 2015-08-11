@@ -1,0 +1,40 @@
+<h1>Create Your Project</h1>
+<div class="project-form row">
+  <%= form_for @project do |f| %>
+  <div class="form-field input-field col s12">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-field input-field col s12">
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 10, cols: 80, class: "materialize-textarea"  %>
+  </div>
+  <div class="form-field input-field col s12">
+    <%= f.label :skills_desired %>
+    <%= f.text_area :skills_desired, rows: 10, cols: 80, class: "materialize-textarea" %>
+  </div>
+  <div class="form-field input-field col s12">
+    <%= label_tag :tags %>
+    <%= text_field_tag :tags %>
+  </div>
+  <div class="form-field input-field col s12">
+    <%= f.label :repo_link %>
+    <%= f.text_field :repo_link%>
+  </div>
+  <div class="form-field col s12">
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date, class: "datepicker" %>
+  </div>
+  <div class="form-field col s12">
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date, class: "datepicker" %>
+  </div>
+  <div class="form-field input-field col s12">
+    <%= f.label :status %>
+    <%= f.select :status, options_for_select(["in progress", "starting soon"])%>
+  </div>
+  <div class="submit-button">
+    <%= f.submit "Create Project" %>
+  </div>
+  <% end %>
+</div>

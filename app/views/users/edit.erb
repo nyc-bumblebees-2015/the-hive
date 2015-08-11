@@ -1,0 +1,40 @@
+<h2>Edit user info and profile for <em><%= @user.username %></em></h2>
+
+<div class="edit-user-form">
+  <%= form_for @user do |f| %>
+
+    <div class="user-info">
+      <div class="name">
+      <%= f.label :first_name %>
+      <%=f.text_field :first_name, value: @user.first_name%>
+      <%= f.label :last_name %>
+      <%=f.text_field :last_name, value: @user.last_name%>
+      </div>
+      <div class="email">
+      <%= f.label :email %>
+      <%=f.email_field :email, value: @user.email%>
+      </div>
+      <div class="zip">
+      <%= f.label :zip_code %>
+      <%=f.text_field :zip_code, value: @user.zip_code%>
+      </div>
+    </div>
+
+    <div class="profile-info">
+      <div class="bio">
+      <%= f.label :bio %>
+      <%= f.text_area :bio, value: @user.bio %>
+      </div>
+      <div class="github">
+      <%= f.label :github_link %>
+      <%= f.url_field :github_link, value: @user.github_link %>
+      </div>
+      <div class="website">
+      <%= f.label :website_link %>
+      <%= f.url_field :website_link, value: @user.website_link %>
+      </div>
+    </div>
+
+    <%= f.submit "Edit Profile" %>
+  <% end %>
+</div>

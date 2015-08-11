@@ -1,0 +1,25 @@
+input {
+  background-color: $accent-color;
+  border: none;
+  font-weight:bold;
+
+  &[type="submit"]:hover{
+    color: $background-color;
+    background-color: $dark-accent-color;
+  }
+
+}
+
+.btn {
+  background-color: $accent-color;
+  font-weight:bold;
+  margin-top:10px;
+  &:hover {
+    color: $background-color;
+    background-color: $dark-accent-color;
+  }
+}
+
+.btn-flat {
+  color:$text-color;
+}

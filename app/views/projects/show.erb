@@ -1,0 +1,65 @@
+
+<div class="contact right">
+	<% if @project.creator != current_user%>
+		<div class="request-collaboration">
+			<%= button_to "Collaboration Request", "/projects/#{@project.id}/collaborations", class: "btn"  %>
+		</div>
+
+		<%= link_to "Message Project Owner", "#msg", class: "btn modal-trigger" %>
+	<% end %>
+</div>
+
+<h1><%= @project.title%></h1>
+<div class="project-desc">
+	<%= @project.description%>
+</div>
+
+<div class="status">
+	<h4>Status: <span class="project-status"><%= @project.status %></span></h4>
+</div>
+<h3>Skills desired:</h3>
+<div class="requirement">
+	<%= @project.skills_desired %>
+</div>
+
+<h3>Technologies Used:</h3>
+<div class="tags">
+	<% @project.tags.each do |tag| %>
+<div class="tag"><%= link_to tag.name, tag_path(tag)%></div>
+	<% end %>
+</div>
+
+<% if @project.start_date %>
+	<div class="date">Start date: <%= @project.start_date %></div>
+<% end %>
+
+<% if @project.end_date %>
+	<div class="date">End date: <%= @project.end_date %></div>
+<% end %>
+
+<div class="collaborators">
+ <h3>Project collaborators:</h3>
+	<div>
+	<%= link_to @project.creator.username, user_path(@project.creator) %>
+	<span class="creator">(PROJECT OWNER)</span>
+	</div>
+	<% unless @active_collaborators.empty? %>
+			<div>
+				<% @active_collaborators.each do |collaborator| %>
+					<%= link_to collaborator.username, user_path(collaborator) %>
+				<% end %>
+			</div>
+	<% end %>
+</div>
+
+<div id="msg" class="modal">
+	<div class="modal-content">
+		<%= render partial: 'conversations/form', locals: {recipient: @project.creator, project: @project.id}%>
+	</div>
+</div>
+
+
+<% if user_can_edit?(@project)%>
+	<div class="link"><%= link_to "Edit project", edit_project_path(@project)%></div>
+	<div><%= link_to "Delete project", @project, method: :delete %></div>
+<% end %>

@@ -1,0 +1,14 @@
+<ul class="folders col s12 l1 t1">
+  <div class="row">
+  <li class="<%= active_page(:inbox) %> col l12 t12 s4">
+    <%= link_to mailbox_inbox_path, class: "btn-flat" do %>Inbox
+    <% end %>
+    </li>
+  <li class="<%= active_page(:sent) %> col l12 t12 s4">
+  <%= link_to "SENT", mailbox_sent_path, class: "btn-flat"  %>
+  </li>
+  <li class="<%= active_page(:trash) %> col l12 t12 s4">
+  <%= link_to "TRASH", mailbox_trash_path, class: "btn-flat"  %>
+  </li>
+  </div>
+</ul>

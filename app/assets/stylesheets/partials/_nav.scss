@@ -1,0 +1,45 @@
+nav {
+
+  background-color: $nav-color;
+
+  &:after {
+    clear:both;
+    display:block;
+    content: "";
+  }
+
+  div {
+    width: auto;
+    
+  }
+  .right { 
+    display:flex;
+    div {
+      padding: 0px 5px;
+    }
+  }
+
+  li { 
+    list-style-type: none;
+    }
+
+  li#name{
+    max-height: 65px;
+    img{
+      max-height:65px;
+      padding:5px;
+    }
+  }
+
+  li.profile i {
+    display: inline-block;
+  }
+}
+
+#user-dropdown{
+  background-color: $nav-color;
+  a {
+    color: $accent-color;
+    font-size:1em;
+  }
+}

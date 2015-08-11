@@ -1,0 +1,49 @@
+.folders {
+  background-color: $background-color;
+
+  .tab a {
+    color: $accent-color;
+    &:hover {
+      color: $dark-accent-color;
+    }
+  }
+  .indicator {
+    background-color: $accent-color;
+  }
+
+  .unread {
+    color: $dark-accent-color;
+  }
+
+  .active a {
+    color: $accent-color;
+  }
+}
+
+.conversation, .message-thread {
+  margin-top:10px;
+
+  .message{
+    padding:10px;
+    background-color:$panel-color;
+    &:nth-child(even){
+      background-color:$background-color;
+    }
+  }
+
+  h3, h4 {
+    margin:0
+  }
+
+  .date {
+    font-size:0.85em;
+  }
+
+}
+
+.trash {
+  background-color: $background-color;
+  &:hover {
+    background-color:$danger-color;
+  }
+}
