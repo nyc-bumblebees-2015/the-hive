@@ -5,6 +5,7 @@ describe ProjectsController do
   let(:project) {FactoryGirl.create(:project)}
   let(:user) {FactoryGirl.create(:user)}
   let(:tag) {FactoryGirl.create(:tag)}
+  let(:project_attributes) {attributes_for(:project)}
 
 
   describe 'GET #new' do
@@ -43,7 +44,12 @@ describe ProjectsController do
     end
     context 'while logged in to site' do
       context 'with valid attributes' do
-        it 'save project to database'
+        it 'save project to database' do
+          expect{
+            post :create, project: attributes_for(:project)
+          }.to change(Project, :count).by(1)
+
+        end
         it 'splits the tag field into individual tags, separated by commas'
         it 'capitalizes the tag name'
         it 'adds the tags'
