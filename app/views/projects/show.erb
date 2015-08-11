@@ -52,8 +52,8 @@
 	 <h3>Project collaborators:</h3>
 		<div class="creator">
 			<%= render @project.creator %>
-			<div class="location"><%= @project.creator.location%></div>
 		</div>
+		<div class="location"><%= @project.creator.city%>, <%= @project.creator.state%></div>
 
 		<%= render @active_collaborators %>
 	</div>

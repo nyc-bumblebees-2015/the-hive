@@ -2,9 +2,7 @@
 
   <div class="avatar left"><img src="<%= @user.gravatar_url %>" class="responsive-img circle"></div>
   <div class="username"><%= @user.username %></div>
-
-  <div class="location"><%= @user.location%></div>
-
+  <div class="location"><%= @user.city%>, <%= @user.state%></div>
   <div class="links">
     <% if @user.github_link %>
       <div class="github"><a href="<%= @user.github_link%>">GitHub</a></div>

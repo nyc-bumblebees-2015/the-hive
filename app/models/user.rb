@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   geocoded_by :zip_code
   after_validation :geocode
+  before_validation :location
 
   validates :username, presence: true, uniqueness: true
   validates :first_name, presence: true
@@ -46,9 +47,9 @@ class User < ActiveRecord::Base
   end
 
   def location
-    province = Geocoder.search(self.zip_code).first.province
-    city = Geocoder.search(self.zip_code).first.city
-    "#{city}, #{province}"
+    result = Geocoder.search(self.zip_code)
+    self.state = result.first.try(:province)
+    self.city = result.first.try(:city)
   end
   
 end
