@@ -3,6 +3,6 @@ require 'faker'
 FactoryGirl.define do
   factory :tag do
 
-    name {Faker::Lorem.word}
+    name 'ruby'
   end
 end
