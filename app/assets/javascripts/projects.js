@@ -13,19 +13,20 @@ $(document).ready(function(){
   }
 
   function extract(val){
-    return val.split(/,\s*/)
+    return val.split(/,\s*/);
   }
 
   function extractLast( term ) {
     return extract(term).pop();
   }
-  var divJoin = '</div><div class="tag">'
+
+  var divJoin = '</div><div class="tag">';
  
   $('.tags-input')
   .autocomplete({
-    source: function( request, response ) {
+    source: function(request, response) {
       response( $.ui.autocomplete.filter(
-        availableTags, extractLast( request.term ) ) );
+        availableTags, extractLast(request.term)));
     },
     select: function(event,ui){
       var terms = split($('.tags-list').html()) || []; 
@@ -34,8 +35,9 @@ $(document).ready(function(){
         terms.pop();
       }
       terms.push(ui.item.value);
-      this.value = '<div class="tag">' + terms.join(divJoin) + '</div>';
-      $('.tags-list').html(this.value);
+      this.value = terms.join(',');
+      $('.tags-value').val(terms.join(','));
+      $('.tags-list').html('<div class="tag">' + terms.join(divJoin) + '</div>');
     }, 
     open: function() {
       $('.ui-menu').width('42%');
