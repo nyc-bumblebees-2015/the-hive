@@ -9,15 +9,11 @@
 <div class="hub-main">
   <h2>Projects near you: </h2>
   <div class="near-you">
-    <div class="near-you-results">
+    <div class="near-you-results row">
     <% if @projects.empty? %>
       <em>Sorry, there are no projects near you.</em>
     <% else %>
-      <ul>
-        <% @projects.each do |project|%>
-          <div class = "project-result"><%= render partial: 'projects/project', locals: { project: project} %></div>
-        <% end %>
-      </ul>
+        <%= render @projects %>
     <% end %>
   </div>
 </div>
