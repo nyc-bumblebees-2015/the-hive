@@ -1,40 +1,50 @@
 <h1>Edit Project</h1>
-<div class="project_form">
+<span class="form-description">* Required Fields</span>
+<div class="project-form row">
   <%= form_for @project do |f| %>
-  <div class="form-field">
-    <%= f.label :title %>
+  <div class="form-field input-field col s12">
+    <%= f.label "Title*" %>
     <%= f.text_field :title %>
   </div>
-  <div class="form-field">
-    <%= f.label :description %>
-    <%= f.text_area :description, rows: 10, cols: 80 %>
+  <div class="form-field input-field col s12">
+    <%= f.label "Description*" %>
+    <%= f.text_area :description, rows: 20, class: "materialize-textarea", placeholder: ""%>
   </div>
-  <div class="form-field">
-    <%= f.label :skills_desired %>
-    <%= f.text_area :skills_desired, rows: 10, cols: 80 %>
+  <div class="form-field input-field col s12">
+    <%= f.label "Skills Desired*" %>
+    <%= f.text_area :skills_desired, rows: 20, class: "materialize-textarea", placeholder: ""%>
   </div>
-  <div class="form-field">
-    <%= label_tag :tags %>
-    <%= text_field_tag :tags, @project.tags_for_edit %>
+  <div class="form-field input-field col s6">
+    <%= f.label "Languages/frameworks (comma separated)*" %>
+    <%= text_field_tag :tag_display, nil, class: "tags-input" %>
+    <%= hidden_field_tag :tags, nil, class: "tags-value" %>
+    <div class="tags-list"></div>
   </div>
-  <div class="form-field">
+  <div class="form-field input-field col s6">
+    <%= f.select :status, options_for_select(["in progress", "starting soon"]),
+                prompt: "Project Status*"%>
+  </div>
+  <div class="form-field input-field col s12">
     <%= f.label :repo_link %>
-    <%= f.text_field :repo_link %>
+    <%= f.text_field :repo_link, value: "http://"%>
   </div>
-  <div class="form-field">
+  <div class="form-field col s6">
     <%= f.label :start_date %>
-    <%= f.date_field :start_date %>
+    <%= f.date_field :start_date, class: "datepicker" %>
   </div>
-  <div class="form-field">
+  <div class="form-field col s6">
     <%= f.label :end_date %>
-    <%= f.date_field :end_date %>
+    <%= f.date_field :end_date, class: "datepicker" %>
   </div>
-  <div class="form-field">
-    <%= f.label :status %>
-     <%= f.select :status, options_for_select(["in progress", "starting soon"])%>
-  </div>
-  <div class="submit-button">
-    <%= f.submit "Edit Project" %>
+  <div class="submit-button col s12">
+    <%= f.submit "Create Project", class: "create-project" %>
   </div>
   <% end %>
 </div>
+
+<script>
+  var availableTags = new Array();
+  <% Tag.all_tags.each do |tag|%>;
+    availableTags.push("<%=tag%>");
+  <% end %>
+</script>
