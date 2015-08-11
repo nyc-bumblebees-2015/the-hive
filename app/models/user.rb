@@ -44,5 +44,11 @@ class User < ActiveRecord::Base
     .select("collaborations.status, collaborations.collaborator_id, projects.*")
     .where("collaborations.status='approved' AND collaborator_id=#{self.id}")
   end
+
+  def location
+    province = Geocoder.search(self.zip_code).first.province
+    city = Geocoder.search(self.zip_code).first.city
+    "#{city}, #{province}"
+  end
   
 end
