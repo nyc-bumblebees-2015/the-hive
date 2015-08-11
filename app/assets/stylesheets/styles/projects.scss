@@ -23,4 +23,17 @@
   display:block;
   content:"";
 }
-.ui-helper-hidden-accessible { display:none; }
+
+.ui-helper-hidden-accessible {
+  display:none;
+}
+
+ul.ui-menu {
+  background-color: $panel-color;
+  color:$accent-color;
+
+  li {
+    padding:10px;
+    font-weight:bold;
+  }
+}

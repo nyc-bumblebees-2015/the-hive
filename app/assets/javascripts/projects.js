@@ -37,7 +37,8 @@ var availableTags = [
     return split(term).pop();
   }
  
-  $('.tags-input').autocomplete({
+  $('.tags-input')
+  .autocomplete({
     source: function( request, response ) {
       response( $.ui.autocomplete.filter(
         availableTags, extractLast( request.term ) ) );
@@ -49,9 +50,10 @@ var availableTags = [
       terms.push(ui.item.value);
       this.value = terms.join(",");
       $('.tags-list').html(this.value);
-      console.log(this.value);
-      console.log(terms);
-    }
+    }, 
+    open: function() {
+      $('.ui-menu').width('42%')
+    }  
   })
 
 });
