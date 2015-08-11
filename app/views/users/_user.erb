@@ -1,0 +1,6 @@
+<div class="user">
+  <%= link_to user_path(user), class: 'center-align' do %>
+    <%= image_tag user.gravatar_url(150), class: 'center-align responsive-img circle' %>
+    <h3><%= user.username %></h3>
+  <% end %>
+</div>

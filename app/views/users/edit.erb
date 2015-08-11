@@ -1,40 +1,47 @@
-<h2>Edit user info and profile for <em><%= @user.username %></em></h2>
+<h2>Edit user info and profile for <em><%= @user.username %></em>
+</h2>
 
-<div class="edit-user-form">
+<span class="form-description">* Required Fields</span>
+
+<div class="edit-user-form row">
   <%= form_for @user do |f| %>
-
-    <div class="user-info">
-      <div class="name">
-      <%= f.label :first_name %>
-      <%=f.text_field :first_name, value: @user.first_name%>
-      <%= f.label :last_name %>
-      <%=f.text_field :last_name, value: @user.last_name%>
+      
+      <div class="form-field input-field col s6">
+        <%= f.label "First Name*" %>
+        <%=f.text_field :first_name, value: @user.first_name%>
       </div>
-      <div class="email">
-      <%= f.label :email %>
+      <div class="form-field input-field col s6">
+        <%= f.label "Last Name*" %>
+        <%=f.text_field :last_name, value: @user.last_name%>
+      </div>
+      
+      <div class="form-field input-field col s8">
+      <%= f.label "Email*" %>
       <%=f.email_field :email, value: @user.email%>
       </div>
-      <div class="zip">
-      <%= f.label :zip_code %>
+      
+      <div class="form-field input-field col s4">
+      <%= f.label "Zip Code*" %>
       <%=f.text_field :zip_code, value: @user.zip_code%>
       </div>
-    </div>
-
-    <div class="profile-info">
-      <div class="bio">
+      
+      <div class="form-field input-field col s12">
       <%= f.label :bio %>
-      <%= f.text_area :bio, value: @user.bio %>
+      <%= f.text_area :bio, value: @user.bio, class: "materialize-textarea", placeholder: "" %>
       </div>
-      <div class="github">
+      
+      <div class="form-field input-field col s6">
       <%= f.label :github_link %>
-      <%= f.url_field :github_link, value: @user.github_link %>
+      <%= f.url_field :github_link, value: @user.github_link, value: "http://" %>
       </div>
-      <div class="website">
+      
+      <div class="form-field input-field col s6">
       <%= f.label :website_link %>
-      <%= f.url_field :website_link, value: @user.website_link %>
+      <%= f.url_field :website_link, value: @user.website_link, value: "http://" %>
       </div>
-    </div>
 
+  <div class="submit-button">
     <%= f.submit "Edit Profile" %>
+    </div>
   <% end %>
 </div>

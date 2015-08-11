@@ -12,10 +12,11 @@ input {
 
 .btn {
   background-color: $accent-color;
+  color: $background-color;
   font-weight:bold;
   margin-top:10px;
   &:hover {
-    color: $background-color;
+    color:$background-color;
     background-color: $dark-accent-color;
   }
 }
