@@ -12,4 +12,9 @@
   font-style: normal;
 }
 
-$main-font: "Neuzeit", sans-serif; 
+@font-face {
+  font-family: 'Slim Joe';
+  src: url('../fonts/Slim Joe.otf');
+}
+
+$main-font: "Neuzeit", sans-serif;
