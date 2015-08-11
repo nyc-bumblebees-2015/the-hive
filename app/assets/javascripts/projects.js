@@ -1,11 +1,25 @@
 $(document).ready(function(){
-  function split(val) {
-    return val.split(/,\s*/);
+ function split(val) {
+    if (val){
+      var arr = [];
+      $.parseHTML(val).forEach(function(elem){
+        arr.push($(elem).html());
+      });
+      return arr;
+    } else {
+      return val;
+    }
+
+  }
+
+  function extract(val){
+    return val.split(/,\s*/)
   }
 
   function extractLast( term ) {
-    return split(term).pop();
+    return extract(term).pop();
   }
+  var divJoin = '</div><div class="tag">'
  
   $('.tags-input')
   .autocomplete({
@@ -14,11 +28,13 @@ $(document).ready(function(){
         availableTags, extractLast( request.term ) ) );
     },
     select: function(event,ui){
-      var terms = split($('.tags-list').html());
+      var terms = split($('.tags-list').html()) || []; 
       var lastInput = terms[terms.length-1];
-      if (availableTags.indexOf(lastInput) === -1){ terms.pop(); }
+      if (availableTags.indexOf(lastInput) === -1){
+        terms.pop();
+      }
       terms.push(ui.item.value);
-      this.value = terms.join(",");
+      this.value = '<div class="tag">' + terms.join(divJoin) + '</div>';
       $('.tags-list').html(this.value);
     }, 
     open: function() {
