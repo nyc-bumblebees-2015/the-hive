@@ -2,11 +2,15 @@
   text-align:center;
 }
 
+.hidden {
+  padding: 30px;
+}
+
 #splash-copy-area {
   padding-bottom: 20px;
   width: 50%;
-  height: 70%;
-  background-color: #080000 ;
+  height: 50%;
+  background-color: black;
   margin: 0 auto;
 }
 
@@ -16,15 +20,11 @@ h1 {
 }
 
 .big-header {
-  font-size: 4.0em;
-}
-
-.login-links {
-  float: right;
+  font-size: 5.0em;
 }
 
 .copy {
-  font-family: "Roboto", sans-serif;
+  color: white;
   font-size: 2.0em;
   padding: 30px;
 }
