@@ -1,5 +1,5 @@
 $(document).ready(function(){
- function split(val) {
+  function split(val) {
     if (val){
       var arr = [];
       $.parseHTML(val).forEach(function(elem){
@@ -42,6 +42,21 @@ $(document).ready(function(){
     open: function() {
       $('.ui-menu').width('42%');
     }  
+  });
+
+  $('.tags-list').on('click', '.tag', function(event){
+    event.preventDefault();
+    var tag = $(this).html();
+    $(this).remove();
+
+    var tagsList = $('.tags-value').val();
+    var tagsArr = extract(tagsList);
+    var ind = tagsArr.indexOf(tag);
+    if (ind > -1){
+      tagsArr.splice(ind, 1);
+    }
+
+    $('.tags-value').val(tagsArr);
   });
 
 });
