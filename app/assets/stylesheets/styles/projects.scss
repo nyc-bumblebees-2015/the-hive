@@ -37,3 +37,15 @@ ul.ui-menu {
     font-weight:bold;
   }
 }
+
+.tags-list {
+  min-height:50px;
+  padding:10px;
+  display:block;
+  color:$accent-color;
+  font-weight:bold;
+  .tag {
+    padding:5px;
+    display:inline-block;
+  }
+}
