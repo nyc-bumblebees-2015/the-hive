@@ -3,7 +3,6 @@
 		<div class="project-header row">
 			<h1><%= @project.title%></h1> 
 		</div>
-		<div class="location"><%= @project.creator.location%></div>
 		<div class="project-desc">
 			<%= @project.description%>
 		</div>
@@ -53,6 +52,7 @@
 	 <h3>Project collaborators:</h3>
 		<div class="creator">
 			<%= render @project.creator %>
+			<div class="location"><%= @project.creator.location%></div>
 		</div>
 
 		<%= render @active_collaborators %>
