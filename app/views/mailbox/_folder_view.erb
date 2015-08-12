@@ -1,6 +1,7 @@
 <div class="mailbox row">
   <%= render "mailbox/folders" %>
   <div class="mailbox-messages right col s12 t10 l10">
+
     <% if @pending_requests %>
       <% @pending_requests.each do |req| %>
       <div class="pending-request row">
@@ -17,8 +18,8 @@
           <i class="material-icons">clear</i>
         <% end %>
         </div>
-        <% end %>
-        </div>
+      </div>
+      <% end %>
     <% end %>
 
     <% if is_conversation %>
