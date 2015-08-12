@@ -12,11 +12,12 @@
   margin: 0 auto;
   padding: 15px;
   margin-top: 15%;
-}
 
-h1 {
-  color: white;
-  font-family: $main-font;
+  h1 {
+    color: white;
+    font-family: 'Slim Joe';
+    margin: 0;
+  }
 }
 
 .big-header {
@@ -26,9 +27,17 @@ h1 {
 .copy {
   color: white;
   font-size: 2.0em;
-  padding: 5px;
   font-weight: lighter;
+
+  .copy-text {
+    font-family: 'Slim Joe';
+    font-weight: bold;
+    font-size: 0.8em;
+    text-shadow: 3px 3px $background-color;
+  }
 }
+
+
 
 .logo {
   float: right;
