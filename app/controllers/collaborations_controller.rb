@@ -17,14 +17,12 @@ class CollaborationsController < ApplicationController
     collaborations.status = params[:status]
     if collaborations.save && collaborations.status == 'approved'
       flash[:notice] = "You have approved the person"
-      redirect_to mailbox_inbox_path
     elsif collaborations.save && collaborations.status == 'denied'
       flash[:notice] = "You have denied the person"
-      redirect_to mailbox_inbox_path
     else
       flash[:errors] = collaboration.errors.full_messages
-      redirect_to mailbox_inbox_path
     end
+    redirect_to mailbox_inbox_path
   end
 
   private

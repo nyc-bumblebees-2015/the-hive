@@ -8,8 +8,8 @@ class ConversationsController < ApplicationController
     recipient = User.find_by(id: params[:conversation][:recipient_id])
     conversation = current_user.send_message(recipient, conversation_params[:body], conversation_params[:subject]).conversation
     flash[:success] = 'Your message was succesfully sent!'
-    tired = params[:conversation][:project]
-    redirect_to project_path(tired)
+    new_project = params[:conversation][:project]
+    redirect_to project_path(new_project)
   end
 
   def show

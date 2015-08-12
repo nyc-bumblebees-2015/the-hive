@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :mailbox, :conversation
 
   def current_user
-    User.find_by(id: session[:user_id])
+    User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
   def require_login (redirect_path = root_path)

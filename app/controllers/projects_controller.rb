@@ -78,7 +78,6 @@ class ProjectsController < ApplicationController
     if request.xhr?
       render partial: 'projects/project', collection: @projects
     end
-
   end
 
 private

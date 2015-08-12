@@ -9,9 +9,7 @@ $(document).ready(function(){
     } else {
       return val;
     }
-
   }
-
   function extract(val){
     return val.split(/,\s*/);
   }
@@ -21,7 +19,6 @@ $(document).ready(function(){
   }
 
   var divJoin = '</div><div class="tag">';
- 
   $('.tags-input')
   .autocomplete({
     source: function(request, response) {
@@ -29,7 +26,7 @@ $(document).ready(function(){
         availableTags, extractLast(request.term)));
     },
     select: function(event,ui){
-      var terms = split($('.tags-list').html()) || []; 
+      var terms = split($('.tags-list').html()) || [];
       var lastInput = terms[terms.length-1];
       if (availableTags.indexOf(lastInput) === -1){
         terms.pop();
@@ -38,10 +35,10 @@ $(document).ready(function(){
       this.value = terms.join(',');
       $('.tags-value').val(terms.join(','));
       $('.tags-list').html('<div class="tag">' + terms.join(divJoin) + '</div>');
-    }, 
+    },
     open: function() {
       $('.ui-menu').width('42%');
-    }  
+    }
   });
 
   $('.tags-list').on('click', '.tag', function(event){
