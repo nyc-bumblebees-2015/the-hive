@@ -3,7 +3,7 @@
     <div class="msg-headers col s2">
       <h3><%= link_to conversation.originator.username, user_path(conversation.originator) %></h3>
       <div class="date">
-        <%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %>
+        <%=  format_date(conversation.messages.last.created_at) %>
       </div>
       <div class="action-links">
       <%unless conversation.is_trashed?(current_user) %>

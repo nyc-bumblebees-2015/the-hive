@@ -5,7 +5,7 @@
     <div class="msg-headers col s2">
     <h3><%= link_to message.sender.username, user_path(message.sender) %></h3>
     <div class="date">
-      <%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %>
+      <%=  format_date(message.created_at) %>
     </div>
     </div>
     <div class="msg-content col s10">
