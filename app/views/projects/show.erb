@@ -3,9 +3,13 @@
 		<div class="project-header row">
 			<h1><%= @project.title%></h1>
 		</div>
+		<div class="project-tags row">
+      <%= render @project.tags %>
+		</div>
 		<div class="project-desc">
 			<%= @project.description%>
 		</div>
+		
 
 		<div class="status">
 			<h4>Status: <span class="project-status"><%= @project.status %></span></h4>
@@ -19,12 +23,6 @@
 		<div class="requirement">
 			<%= @project.skills_desired %>
 		</div>
-
-		<h3>Technologies Used:</h3>
-		<div class="tags-display">
-      <%= render @project.tags %>
-		</div>
-
 		<% if @project.start_date %>
 			<div class="date">Start date: <%= @project.start_date %></div>
 		<% end %>
