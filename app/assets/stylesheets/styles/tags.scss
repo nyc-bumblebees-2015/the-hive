@@ -1,6 +1,10 @@
-.tags {
+.tags-display, .project-tags {
   display:flex;
   flex-wrap: wrap;
+}
+
+.tags-search {
+  margin-top: 20px;
 }
 
 .tag {
