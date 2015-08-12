@@ -7,16 +7,16 @@
 }
 
 #splash-copy-area {
-  padding-bottom: 20px;
   width: 50%;
-  height: 60%;
-  background-color: black;
+  height: 50%;
+  background-color: transparent;
   margin: 0 auto;
+  border: 3px solid turquoise;
 }
 
 h1 {
   color: white;
-  font-family: 'Slim Joe';
+  font-family: $main-font;
 }
 
 .big-header {
@@ -26,13 +26,17 @@ h1 {
 .copy {
   color: white;
   font-size: 2.0em;
-  padding: 30px;
+  padding: 5px;
 }
 
 .splash {
-  padding: 30px;
+  padding: 15px;
 }
 
 .logo {
   float: right;
+}
+
+.login-links {
+  padding-top: 10px;
 }
