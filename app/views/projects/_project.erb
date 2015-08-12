@@ -1,13 +1,11 @@
 <div class="project-teaser card col s12 m5 l5">
   <div class="card-content">
+    <% if project.level%>
+      <div class="level <%= project.level%>"><%= project.level%></div>
+    <% end %>
     <div class="title card-title"><%= link_to project.title, project_path(project)%> </div>
     <div class="location"> <%= project.creator.city %>, <%= project.creator.state %></div>
     <p><%= project.description %></p>
-    <% if project.level%>
-      <div class="level">
-        <p>level: <%= project.level%></p>
-      </div>
-    <% end %>
     <p class="team-lead"><b>TEAM LEAD:</b> <%= link_to project.creator.username, user_path(project.creator) %></p>
     <div class="project-tags">
       <%= render project.tags %>

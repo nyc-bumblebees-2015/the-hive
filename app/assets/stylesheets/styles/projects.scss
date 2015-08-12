@@ -26,6 +26,26 @@
   }
 }
 
+.level {
+  float: right;
+  display: block;
+  padding: 5px;
+  color:$background-color;
+  font-weight:bold;
+  text-transform: uppercase;
+  border-radius:5px;
+}
+.beginner {
+  background-color: $beginner-color;
+}
+.intermediate {
+  background-color: $intermediate-color;
+}
+.advanced {
+  background-color: $advanced-color;
+}
+
+
 .project:after {
   clear:both;
   display:block;

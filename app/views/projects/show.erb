@@ -1,5 +1,8 @@
 <div class="project row">
 	<div class="project-main left col s12 m9 l9">
+	<% if @project.level%>
+      <div class="level <%= @project.level%>"><%= @project.level%></div>
+    <% end %>
 		<div class="project-header row">
 			<h1><%= @project.title%></h1>
 		</div>
@@ -14,11 +17,6 @@
 		<div class="status">
 			<h4>Status: <span class="project-status"><%= @project.status %></span></h4>
 		</div>
-		<% if @project.level%>
-			<div class="level">
-				<h4>Level: <%= @project.level%></h4>
-			</div>
-		<% end %>
 		<h3>Skills desired:</h3>
 		<div class="requirement">
 			<%= @project.skills_desired %>
