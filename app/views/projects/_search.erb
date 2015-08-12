@@ -1,14 +1,14 @@
 <div class="project-form row">
   <%= form_tag projects_results_path, :method => :get, id: 'project_search_form' do %>
-  <div class="form-field input-field col m5 s12">
+  <div class="form-field input-field col m12 s12">
     <%= label_tag(:search, "Zip Code:") %>
     <%= text_field_tag :search, params[:search] %>
   </div>
-  <div class="form-field input-field col m5 s12">
+  <div class="form-field input-field col m12 s12">
     <%= label_tag(:distance, "Distance in miles:") %>
     <%= text_field_tag :distance, params[:distance] %>
   </div>
- <div class="submit-button col m2 s12">
+ <div class="submit-button col m12 s12">
   <%= submit_tag "Search", :name => nil, class: "btn", id: "search-location" %>
 </div>
 <% end %>

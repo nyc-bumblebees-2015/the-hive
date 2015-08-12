@@ -1,12 +1,16 @@
-<div class="search right">
-  <a class="waves-effect waves-light btn location" href="#">Search by Location</a>
-  <a class="waves-effect waves-light btn tags" href="#">Search by Tags</a>
-</div>
-  <div class='dropdown'>
+<div class="hub row">
+<div class="search right col s12 m3 l3">
+  <div class="search-options valign-wrapper">
+    <i class="material-icons valign">search</i><a class="waves-effect waves-light btn-flat location" href="#">Location</a>
+    <a class="waves-effect waves-light btn-flat tags" href="#">Tags</a>
+  </div>
+  <div class='dropdown search-by'>
     <div class="toggle location-search" style="display:none;"><%= render partial: "projects/search", layout: false %></div>
     <div class="toggle tags-search" style="display:none;"><%= render partial: 'tags/display', locals: {tags: @tags}%></div>
   </div>
-<div class="hub-main">
+</div>
+  
+<div class="hub-main left col s12 m9 l9">
   <h2>Projects near you: </h2>
   <div class="near-you">
     <div class="near-you-results row">
@@ -17,4 +21,5 @@
     <% end %>
   </div>
 </div>
+  </div>
   </div>
