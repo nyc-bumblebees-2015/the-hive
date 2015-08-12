@@ -46,7 +46,12 @@
 
 		<div class="creator">
 			<h3>Project creator: </h3>
-			<%= render @project.creator %>
+			<div class="user">
+			  <%= link_to user_path(@project.creator), class: 'center-align' do %>
+			    <%= image_tag @project.creator.gravatar_url(150), class: 'center-align responsive-img circle' %>
+    	<h3><%= @project.creator.username %></h3>
+  <% end %>
+</div>
 			<div class="location"><%= @project.creator.city%>, <%= @project.creator.state%></div>
 		</div>
 		<div class="collaborators">
