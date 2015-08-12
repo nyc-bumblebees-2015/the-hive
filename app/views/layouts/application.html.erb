@@ -15,7 +15,7 @@
   <% if current_user %>
 <%= render 'layouts/header' %>
 <% else %>
-<div class="splash-background">
+
 <div class="content">
   <div class="flash">
     <% if flash[:notice]%>
@@ -30,6 +30,6 @@
 </div>
 <% end %>
   <%= yield %>
-</div>
+
 </body>
 </html>

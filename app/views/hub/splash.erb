@@ -1,5 +1,7 @@
-<div class="hidden"></div>
-<div id="splash-copy-area">
+<div class="homepage-hero-module">
+
+    <div class="video-container">
+      <div id="splash-copy-area">
   <div class="splash">
       <h1 class="big-header center-align">the &lt;HIVE&gt;</h1>
   <div class="copy center-align">Collaborate. Inspire. Innovate.</div>
@@ -19,4 +21,12 @@
     <%= render partial: 'sessions/new', locals: { user: @user }%>
     </div>
 </div>
+        <div class="filter"></div>
+        <%= video_tag 'Hello-World.mp4', autoplay: true, class: 'fillWidth' %>
+        <div class="poster hidden">
+            <%= image_tag 'Hello-World.jpg'%>
+        </div>
+    </div>
+</div>
+
 
