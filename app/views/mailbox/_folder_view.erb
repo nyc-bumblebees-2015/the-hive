@@ -9,12 +9,12 @@
         <h4><%= link_to req.collaborator.username, user_path(req.collaborator) %> is requesting to collaborate on <%= link_to req.project.title, project_path(req.project.title) %></h4>
         </div>
         <div class="col s1">
-        <%= button_to project_collaboration_path(req.project, req), method: 'patch', params:{status: 'approved'}, class: "btn-floating red lighten-1" do %>
+        <%= button_to project_collaboration_path(req.project, req), method: 'patch', params:{status: 'approved'}, class: "btn-floating light-green lighten-2" do %>
           <i class="material-icons">done</i>
         <% end %>
         </div>
         <div class="col s1">
-        <%= button_to project_collaboration_path(req.project, req), method: 'patch', params:{status: 'denied'}, class: "btn-floating light-green lighten-2" do %>
+        <%= button_to project_collaboration_path(req.project, req), method: 'patch', params:{status: 'denied'}, class: "btn-floating red lighten-1" do %>
           <i class="material-icons">clear</i>
         <% end %>
         </div>
