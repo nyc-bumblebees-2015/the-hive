@@ -80,10 +80,7 @@ class ProjectsController < ApplicationController
       end
     end
     if request.xhr?
-      puts "rendering project"
-      render partial: 'project', collection: @projects
-    else
-      puts "rendering not partial"
+      render partial: 'projects/project', collection: @projects
     end
 
   end
@@ -96,7 +93,7 @@ private
 
   def check_privileges
     unless current_user.id == Project.find_by(id: params[:id]).creator_id
-     redirect_to root_path, notice: "not authorized!" 
+     redirect_to root_path, notice: "not authorized!"
     end
   end
 
