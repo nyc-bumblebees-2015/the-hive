@@ -24,6 +24,10 @@
     <%= f.select :status, options_for_select(["in progress", "starting soon"]),
                 prompt: "Project Status*"%>
   </div>
+  <div class="form-field input-field col s6">
+    <%= f.select :level, options_for_select(["beginner", "intermediate","advanced"]),
+                prompt: "Project level"%>
+  </div>
   <div class="form-field input-field col s12">
     <%= f.label :repo_link %>
     <%= f.text_field :repo_link, value: "http://"%>

@@ -10,6 +10,11 @@
 		<div class="status">
 			<h4>Status: <span class="project-status"><%= @project.status %></span></h4>
 		</div>
+		<% if @project.level%>
+			<div class="level">
+				<h4>Level: <%= @project.level%></h4>
+			</div>
+		<% end %>
 		<h3>Skills desired:</h3>
 		<div class="requirement">
 			<%= @project.skills_desired %>
