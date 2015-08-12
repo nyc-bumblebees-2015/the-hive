@@ -13,6 +13,6 @@ var search = function(event) {
     $('.near-you-results').html(response);
     $('#project_search_form')[0].reset();
   }).fail(function(error){
-    console.log(error);
+    $('.flash').text("There was an error with your search")
   });
 };
