@@ -5,11 +5,18 @@
 
 .tags-search {
   margin-top: 20px;
+  font-weight:bold;
+  .tag {
+    padding:5px;
+  }
+  .project-count {
+    color: $text-color;
+    padding:10px;
+  }
 }
 
 .tag {
   background-color: $panel-color;
   color: $accent-color;
-  padding: 3px;
-  margin: 5px;
+  margin: 7px;
 }
