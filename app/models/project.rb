@@ -23,7 +23,7 @@ class Project < ActiveRecord::Base
   end
 
   def collaborations_with_status(status)
-    Collaboration.where("status='#{status}' AND project_id=#{self.id}")
+    collaborators.where(status: status)
   end
 
 end
