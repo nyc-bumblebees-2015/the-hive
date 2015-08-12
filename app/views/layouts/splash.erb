@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TheHive</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag 'application' %>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <% if current_user %>
+  <%= render 'layouts/header' %>
+  <% end %>
+
+<div class="content">
+  <div class="video-container">
+  <div class="splash">
+  <h1 class="waves-effect big-header center-align">the &lt;HIVE&gt;</h1>
+  <div class="waves-effect copy center-align"><p class="copy-text">Collaborate. Inspire. Innovate.</p></div>
+  <div class="waves-effect login-links center-align">  <a class="waves-light btn modal-trigger" href="#signup">Sign Up</a>
+  <a class="waves-light btn modal-trigger" href="#login">Log In</a>
+</div>
+</div>
+
+
+<div id="signup" class="modal">
+  <div class="modal-content">
+    <%= render partial: 'users/new', locals: { user: @user }%>
+  </div>
+</div>
+<div id="login" class="modal">
+  <div class="modal-content">
+  <%= render partial: 'sessions/new', locals: { user: @user }%>
+</div>
+</div>
+  <%= video_tag 'Hello-World.mp4', autoplay: true, class: 'fillWidth' %>
+</div>
+  <div class='errors'>
+    <div class="flash">
+    <% if flash[:notice]%>
+      <div class="success light-green lighten-2"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:errors]%>
+      <% flash[:errors].each do |error| %>
+        <div class="error red lighten-1"><%= error %></div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+</div>
+</body>
+</html>
+
+
+
