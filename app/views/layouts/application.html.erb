@@ -15,8 +15,9 @@
   <% if current_user %>
   <%= render 'layouts/header' %>
   <% end %>
+
 <div class="content">
-  <div class="flash">
+    <div class="flash">
     <% if flash[:notice]%>
       <div class="success light-green lighten-2"><%= flash[:notice] %></div>
     <% end %>
