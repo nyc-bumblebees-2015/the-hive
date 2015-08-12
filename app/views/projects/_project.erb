@@ -9,5 +9,16 @@
         <div class="tag"><%= link_to tag.name, tag_path(tag), class: "tag"%></div>
   <% end %>
 </div>
+    <% if project.level%>
+      <div class="level">
+        <p>level: <%= project.level%></p>
+      </div>
+    <% end %>
+    <div class="tags">
+      <% project.tags.each do |tag| %>
+        <div class="tag"><%= link_to tag.name, tag_path(tag), class: "tag"%></div>
+      <% end %>
+    </div>
+>>>>>>> show project level on project show page and result page
   </div>
 </div>

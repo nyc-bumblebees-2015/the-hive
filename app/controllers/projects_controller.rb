@@ -84,7 +84,7 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:title, :description, :start_date, :end_date, :status, :skills_desired, :repo_link).merge(creator_id: session[:user_id])
+    params.require(:project).permit(:title, :description, :start_date, :end_date, :status, :level, :skills_desired, :repo_link).merge(creator_id: session[:user_id])
   end
 
   def check_privileges
