@@ -8,4 +8,8 @@ module ApplicationHelper
     @active == active_page ? 'active' : ''
   end
 
+  def format_date(date_obj)
+    date_obj.strftime("%b %d, %Y")
+  end
+
 end
