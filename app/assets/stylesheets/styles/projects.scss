@@ -22,8 +22,16 @@
 .project-header {
   h1 {
     float:left;
-    margin-top:0;
+    margin:0;
+    padding-right:15px;
   }
+}
+
+.status {
+  display: block;
+  text-transform: uppercase;
+  font-weight:bold;
+  padding:10px;
 }
 
 .level {
@@ -44,7 +52,6 @@
 .advanced {
   background-color: $advanced-color;
 }
-
 
 .project:after {
   clear:both;

@@ -5,17 +5,13 @@
     <% end %>
 		<div class="project-header row">
 			<h1><%= @project.title%></h1>
+			<div class="status"><%= @project.status %></div>
 		</div>
 		<div class="project-tags row">
       <%= render @project.tags %>
 		</div>
 		<div class="project-desc">
 			<%= @project.description%>
-		</div>
-		
-
-		<div class="status">
-			<h4>Status: <span class="project-status"><%= @project.status %></span></h4>
 		</div>
 		<h3>Skills desired:</h3>
 		<div class="requirement">
