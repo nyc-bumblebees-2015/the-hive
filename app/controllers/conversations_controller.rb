@@ -1,6 +1,5 @@
 class ConversationsController < ApplicationController
   before_action :require_login
-  helper_method :mailbox, :conversation
 
   def new
   end
