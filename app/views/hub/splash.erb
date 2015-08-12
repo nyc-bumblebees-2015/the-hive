@@ -1,26 +1,26 @@
 <div class="video-container">
   <div class="splash">
-      <h1 class="waves-effect big-header center-align">the &lt;HIVE&gt;</h1>
+  <h1 class="waves-effect big-header center-align">the &lt;HIVE&gt;</h1>
   <div class="waves-effect copy center-align"><p class="copy-text">Collaborate. Inspire. Innovate.</p></div>
-      <div class="waves-effect login-links center-align">  <a class="waves-light btn modal-trigger" href="#signup">Sign Up</a>
+  <div class="waves-effect login-links center-align">  <a class="waves-light btn modal-trigger" href="#signup">Sign Up</a>
   <a class="waves-light btn modal-trigger" href="#login">Log In</a>
 </div>
 </div>
 
 
 <div id="signup" class="modal">
-    <div class="modal-content">
+  <div class="modal-content">
     <%= render partial: 'users/new', locals: { user: @user }%>
-    </div>
+  </div>
 </div>
 <div id="login" class="modal">
-    <div class="modal-content">
-    <%= render partial: 'sessions/new', locals: { user: @user }%>
-    </div>
+  <div class="modal-content">
+  <%= render partial: 'sessions/new', locals: { user: @user }%>
 </div>
-        <div class="filter"></div>
-        <%= video_tag 'Hello-World.mp4', autoplay: true, class: 'fillWidth' %>
-    </div>
+</div>
+<div class="filter"></div>
+  <%= video_tag 'Hello-World.mp4', autoplay: true, class: 'fillWidth' %>
+</div>
 
 
 
