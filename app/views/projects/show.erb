@@ -10,6 +10,17 @@
 		<div class="project-tags row">
       <%= render @project.tags %>
 		</div>
+
+		<div class="dates">
+			<% if @project.start_date %>
+				<div class="start"><label>Start date:</label> <%= format_date(@project.start_date) %></div>
+			<% end %>
+
+			<% if @project.end_date %>
+				<div class="end"><label>End date:</label><%= format_date(@project.end_date) %></div>
+			<% end %>
+		</div>
+
 		<div class="project-desc">
 			<%= @project.description%>
 		</div>
@@ -17,13 +28,6 @@
 		<div class="requirement">
 			<%= @project.skills_desired %>
 		</div>
-		<% if @project.start_date %>
-			<div class="date">Start date: <%= @project.start_date %></div>
-		<% end %>
-
-		<% if @project.end_date %>
-			<div class="date">End date: <%= @project.end_date %></div>
-		<% end %>
 	</div>
 
 	<div class="sidebar right col s12 m3 l3 center-align">

@@ -19,6 +19,11 @@
   }
 }
 
+.project-desc, .requirement {
+  padding-top:10px;
+  font-size:1.1em;
+}
+
 .project-header {
   h1 {
     float:left;
@@ -55,6 +60,18 @@
 }
 .advanced {
   background-color: $advanced-color;
+}
+
+.dates {
+  margin-top:20px;
+  label { 
+    text-transform:uppercase;
+    padding-right:10px;
+  }
+  div {
+    display:inline-block;
+    padding-right:10px;
+  }
 }
 
 .project:after {
