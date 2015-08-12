@@ -11,4 +11,8 @@ module MailboxHelper
     return count
   end
 
+  def all_message_count
+    unread_messages_count + pending_count
+  end
+
 end

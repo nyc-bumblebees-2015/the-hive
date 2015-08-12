@@ -31,8 +31,8 @@
         </a>
       </li>
       <li id='mailer_count'>
-        <% if unread_messages_count + pending_count > 0 %>
-          <%=unread_messages_count + pending_count %>
+        <% if all_message_count > 0 %>
+          <%= all_message_count %>
         <% end %>
       </li>
       <li class="inbox">
