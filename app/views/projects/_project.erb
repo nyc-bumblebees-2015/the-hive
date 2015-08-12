@@ -1,12 +1,13 @@
 <div class="project-teaser card col s12 m4 l3">
   <div class="card-content">
-    <span class="title card-title"><%= link_to project.title, project_path(project)%></span>
+    <span class="title card-title"><%= link_to project.title, project_path(project)%> </span>
+    (Location: <%= project.creator.city %>, <%= project.creator.state %>)
     <p><%= project.description %></p>
-    <div class="tags">
+    <p>Project Lead: <%= project.creator.username %></p>
+ <div class="tags">
       <% project.tags.each do |tag| %>
         <div class="tag"><%= link_to tag.name, tag_path(tag), class: "tag"%></div>
-      <% end %>
-    </div>
-
+  <% end %>
+</div>
   </div>
 </div>

@@ -76,10 +76,7 @@ class ProjectsController < ApplicationController
       end
     end
     if request.xhr?
-      puts "rendering project"
-      render partial: 'project', collection: @projects
-    else
-      puts "rendering not partial"
+      render partial: 'projects/project', collection: @projects
     end
 
   end
