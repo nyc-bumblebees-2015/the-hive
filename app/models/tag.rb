@@ -12,4 +12,7 @@ class Tag < ActiveRecord::Base
       order("projects_count DESC")
   end
 
+  def self.all_tags 
+    Tag.all.pluck(:name).to_a
+  end
 end

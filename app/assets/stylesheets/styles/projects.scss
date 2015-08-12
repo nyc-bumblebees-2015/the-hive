@@ -23,3 +23,29 @@
   display:block;
   content:"";
 }
+
+.ui-helper-hidden-accessible {
+  display:none;
+}
+
+ul.ui-menu {
+  background-color: $panel-color;
+  color:$accent-color;
+
+  li {
+    padding:10px;
+    font-weight:bold;
+  }
+}
+
+.tags-list {
+  min-height:50px;
+  padding:10px;
+  display:block;
+  color:$accent-color;
+  font-weight:bold;
+  .tag {
+    padding:5px;
+    display:inline-block;
+  }
+}

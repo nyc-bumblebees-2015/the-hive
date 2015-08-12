@@ -34,8 +34,8 @@
 	<div class="sidebar right col s12 m3 l3 center-align">
 	<% if user_can_edit?(@project)%>
 			<div class="edit-links">
-					<%= button_to "Edit Project", edit_project_path(@project), class: "btn-flat" %>
-				<%= button_to "Delete Project", @project, method: :delete, class: "btn-flat" %>
+					<%= button_to "Edit Project", edit_project_path(@project), method: 'get', class: "btn-flat" %>
+				<%= button_to "Delete Project", @project, method: 'delete', class: "btn-flat" %>
 			</div>
 		<% end %>
 

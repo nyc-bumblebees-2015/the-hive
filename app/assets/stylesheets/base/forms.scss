@@ -24,3 +24,15 @@ input {
 .btn-flat {
   color:$text-color;
 }
+
+
+.dropdown-content {
+  background-color: $nav-color;
+  li > span{
+    color: $accent-color;
+  }
+  a {
+    color: $accent-color;
+    font-size:1em;
+  }
+}
