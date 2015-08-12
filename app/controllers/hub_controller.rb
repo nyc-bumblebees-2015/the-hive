@@ -1,6 +1,7 @@
 class HubController < ApplicationController
   def index
     if !is_authenticated?
+      # byebug
       @user = User.new
       render :splash
     else

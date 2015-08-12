@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates :email, presence: true, uniqueness: true
   validates :password, length: { in: 6..20 }, on: :create
-  # validates :zip_code, length: { is: 5 }
-  # validates_format_of :zip_code, :with => /\d/
+  validates :zip_code, length: { is: 5 }
+  validates_format_of :zip_code, :with => /\d/
 
   has_many :projects_created, class_name: "Project", foreign_key: "creator_id"
   has_many :collaborations, foreign_key: "collaborator_id"
