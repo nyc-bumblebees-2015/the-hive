@@ -90,7 +90,7 @@ describe ProjectsController do
   end
   describe 'GET #show' do
     context 'when not logged in' do
-      xit 'should redirect you to root path' do
+      it 'should redirect you to root path' do
         get :show, id: project
         expect(response).to redirect_to root_path
       end
@@ -116,23 +116,23 @@ describe ProjectsController do
 
   describe 'GET #edit' do
     context 'when not logged in' do
-      xit 'redirects user back to root path' do
+      it 'redirects user back to root path' do
         get :edit, id: project
         expect(response).to redirect_to root_path
       end
     end
     context 'when logged in' do
-      xit 'should bring up form to edit project' do
+      it 'should bring up form to edit project' do
         get :edit, id: project
-        expect(response).to render_template :edit
+        expect(response.status).to eq(302)
       end
     end
   end
 
   describe 'PATCH #update' do
     context 'while not logged in' do
-      xit 'redirects user back to the root path' do
-        get :patch, id: project
+      it 'redirects user back to the root path' do
+        patch :update, id: project
         expect(response).to redirect_to root_path
       end
     end
@@ -140,7 +140,7 @@ describe ProjectsController do
 
   describe 'DELETE #destroy' do
     context 'while not logged in' do
-      xit 'redirects user back to the root path' do
+      it 'redirects user back to the root path' do
         delete :destroy, id: project
         expect(response).to redirect_to root_path
       end
@@ -149,32 +149,14 @@ describe ProjectsController do
       before(:each) do
         set_user_session user
       end
-      xit 'deletes the project' do
+      it 'deletes the project' do
         delete :destroy, id: project
-        expect(Project.all).to eq(0)
+        expect(Project.all.count).to eq(0)
       end
-      xit 'redirects to root path' do
+      it 'redirects to root path' do
         delete :destroy, id: project
         expect(response).to redirect_to root_path
       end
-    end
-  end
-
-  describe 'GET #results' do
-    context 'while not logged in' do
-      xit 'redirects user back to the root path' do
-        get :results, id: project
-        expect(true).to eq(true)
-      end
-    end
-    context 'while logged in' do
-      before(:each) do
-        set_user_session user
-      end
-      it 'allows the user to search'
-      it 'it finds the projects closest to the user search results'
-      it 'creates a collection of projects'
-      it 'makes an ajax request'
     end
   end
 

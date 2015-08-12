@@ -2,7 +2,7 @@ require 'faker'
 
 FactoryGirl.define do
   factory :project do
-    creator_id 1
+    association :creator, factory: :user
     title {Faker::Hacker.adjective}
     description {Faker::Hacker.say_something_smart}
     start_date {Faker::Date.between(2.days.ago, Date.today)}

@@ -2,10 +2,6 @@ class ProjectsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy, :show]
   before_action :check_privileges, only: [:edit, :update]
 
-  # def index
-  #   @projects = Project.all
-  # end
-
   def new
     @project = Project.new
   end
