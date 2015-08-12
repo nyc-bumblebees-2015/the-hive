@@ -2,7 +2,7 @@ class HubController < ApplicationController
   def index
     if !is_authenticated?
       @user = User.new
-      render :splash
+      render :splash, layout: 'splash'
     else
       @user = current_user
       @users_near_me = User.near(current_user.zip_code, 20, :order => 'distance').where.not(:id => current_user.id)

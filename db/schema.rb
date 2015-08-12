@@ -120,8 +120,8 @@ ActiveRecord::Schema.define(version: 20150812140606) do
     t.string   "password_digest", null: false
     t.text     "bio"
     t.string   "zip_code",        null: false
-    t.float    "longitude"
-    t.float    "latitude"
+    t.float    "longitude",       null: false
+    t.float    "latitude",        null: false
     t.string   "github_link"
     t.string   "website_link"
     t.datetime "created_at",      null: false

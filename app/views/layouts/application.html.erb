@@ -5,16 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application' %>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'layouts/header' %>
+  <% if current_user %>
+  <%= render 'layouts/header' %>
+  <% end %>
+
 <div class="content">
-  <div class="flash">
+    <div class="flash">
     <% if flash[:notice]%>
       <div class="success light-green lighten-2"><%= flash[:notice] %></div>
     <% end %>
@@ -26,6 +29,5 @@
   </div>
   <%= yield %>
 </div>
-
 </body>
 </html>

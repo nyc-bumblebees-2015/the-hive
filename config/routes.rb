@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'hub#index'
 
   get '/projects/results' => 'projects#results'
+  get '/hub/video' => 'hub#video'
   resources :users, except: [:index, :destroy, :new]
 
   resources :projects do

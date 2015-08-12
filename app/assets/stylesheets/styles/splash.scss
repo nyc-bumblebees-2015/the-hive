@@ -1,3 +1,48 @@
 .splash-wrap {
   text-align:center;
 }
+
+.hidden {
+  padding: 30px;
+}
+
+.splash {
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  padding: 15px;
+  margin-top: 15%;
+
+  h1 {
+    color: white;
+    font-family: 'Slim Joe';
+    margin: 0;
+  }
+}
+
+.big-header {
+  font-size: 5.0em;
+}
+
+.copy {
+  color: white;
+  font-size: 2.0em;
+  font-weight: lighter;
+
+  .copy-text {
+    font-family: 'Slim Joe';
+    font-weight: bold;
+    font-size: 0.8em;
+    text-shadow: 3px 3px $background-color;
+  }
+}
+
+
+
+.logo {
+  float: right;
+}
+
+.login-links {
+  padding-top: 10px;
+}
