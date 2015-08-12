@@ -141,7 +141,7 @@ describe ProjectsController do
   describe 'DELETE #destroy' do
     context 'while not logged in' do
       xit 'redirects user back to the root path' do
-        get :delete, id: project
+        delete :destroy, id: project
         expect(response).to redirect_to root_path
       end
     end
@@ -149,10 +149,15 @@ describe ProjectsController do
       before(:each) do
         set_user_session user
       end
-      it 'deletes the project'
-      it 'redirects to root path'
+      xit 'deletes the project' do
+        delete :destroy, id: project
+        expect(Project.all).to eq(0)
+      end
+      xit 'redirects to root path' do
+        delete :destroy, id: project
+        expect(response).to redirect_to root_path
+      end
     end
-
   end
 
   describe 'GET #results' do
