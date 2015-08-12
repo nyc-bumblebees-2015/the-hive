@@ -13,9 +13,8 @@
 </head>
 <body>
   <% if current_user %>
-<%= render 'layouts/header' %>
-<% else %>
-
+  <%= render 'layouts/header' %>
+  <% end %>
 <div class="content">
   <div class="flash">
     <% if flash[:notice]%>
@@ -27,9 +26,7 @@
       <% end %>
     <% end %>
   </div>
-</div>
-<% end %>
   <%= yield %>
-
+</div>
 </body>
 </html>
