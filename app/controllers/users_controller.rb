@@ -2,10 +2,6 @@ class UsersController < ApplicationController
   before_action :require_login, only: [:show, :edit, :update]
   before_action :check_privileges, only: [:edit, :update]
 
-	def new
-		@user = User.new
-	end
-
 	def create
 		@user = User.new(user_params)
     @user.password = params[:user][:password]
@@ -47,7 +43,7 @@ class UsersController < ApplicationController
 
   def check_privileges
     unless current_user.id == params[:id].to_i
-     redirect_to root_path, notice: "not authorized!" 
+     redirect_to root_path, notice: "not authorized!"
     end
   end
 

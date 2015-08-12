@@ -51,5 +51,4 @@ class User < ActiveRecord::Base
     self.state = result.first.try(:province)
     self.city = result.first.try(:city)
   end
-
 end
