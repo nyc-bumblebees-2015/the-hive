@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   geocoded_by :zip_code
   after_validation :geocode
+  before_validation :location
 
   validates :username, presence: true, uniqueness: true
   validates :first_name, presence: true
@@ -43,6 +44,12 @@ class User < ActiveRecord::Base
     Project.joins(:collaborations)
     .select("collaborations.status, collaborations.collaborator_id, projects.*")
     .where("collaborations.status='approved' AND collaborator_id=#{self.id}")
+  end
+
+  def location
+    result = Geocoder.search(self.zip_code)
+    self.state = result.first.try(:province)
+    self.city = result.first.try(:city)
   end
   
 end
