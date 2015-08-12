@@ -10,10 +10,9 @@ var search = function(event) {
     method: 'GET',
     data: $target.serialize(),
   }).done(function(response){
-    console.log("yay", response);
     $('.near-you-results').html(response);
     $('#project_search_form')[0].reset();
   }).fail(function(error){
-    console.log("whoops, no good.")
-  })
+    console.log("whoops, no good.");
+  });
 };
