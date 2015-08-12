@@ -17,7 +17,7 @@ TECH_TAGS = [
   "Bootstrap",
   "C",
   "C++",
-  "C#"
+  "C#",
   "CFWheels",
   "CMake",
   "CUDA",
