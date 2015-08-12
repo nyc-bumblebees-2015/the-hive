@@ -77,6 +77,12 @@ ul {
   }
 }
 
+.splash {
+  .waves-effect {
+    display:block;
+  }
+}
+
 #login {
   z-index: 1;
 }
@@ -99,13 +105,13 @@ ul {
     display: block !important;
 }
 .video-container {
-    position: relative;
+    position: absolute;
     bottom: 0%;
     left: 0%;
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background: #000;
+
     background-size: 100%;
 }
 .video-container .poster img {
