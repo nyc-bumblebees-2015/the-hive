@@ -137,6 +137,8 @@ when "development"
 
   NY_ZIP_CODES = ['10001', '10026', '10038', '11204', '07748', '10025', '10014']
 
+  PROJECT_LEVELS = ["beginner", "intermediate", "advanced"]
+
   10.times do
     name = Faker::Name.name.split(" ")
     first_name = name[0]
@@ -151,6 +153,7 @@ when "development"
                 website_link: Faker::Internet.url,
                 github_link: Faker::Internet.url('github.com')
                 )
+    sleep 1
   end
 
   15.times do
@@ -162,7 +165,8 @@ when "development"
                    repo_link: Faker::Internet.url('github.com'),
                    start_date: Faker::Date.between(365.days.ago, Date.today),
                    end_date: Faker::Date.forward(365),
-                   status: PROJECT_STATUSES.sample
+                   status: PROJECT_STATUSES.sample,
+                   level: PROJECT_LEVELS.sample
                    )
   end
 
