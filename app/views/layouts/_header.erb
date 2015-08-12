@@ -11,7 +11,7 @@
   <% if current_user %>
 
     <ul id="mobile-menu" class="side-nav">
-      <li><%= link_to "Inbox", mailbox_inbox_path, class: "inbox"  %></li>
+      <li><%= link_to "inbox" , mailbox_inbox_path, class: "inbox"  %></li>
       <li><%= link_to "My Profile & Projects", user_path(current_user), class: "profile"  %></li>
       <li><%= link_to "Add New Project", new_project_path, class: "new-project" %></li>
       <li><%= link_to "Edit Profile", edit_user_path(current_user), class: "edit-profile"  %></li>
@@ -23,14 +23,19 @@
 
     <ul class="right hide-on-med-and-down valign-wrapper">
       <li class="profile">
-        
+
       </li>
       <li class="profile-actions">
         <a class="dropdown-button" href="<%= user_path(current_user )%>" data-activates="user-dropdown" data-hover="true" data-beloworigin="true">
             <img src="<%= current_user.gravatar_url(40) %>" class="responsive-img circle valign">
         </a>
       </li>
-      <li class="inbox"> 
+      <li id='mailer_count'>
+        <% if unread_messages_count + pending_count > 0 %>
+          <%=unread_messages_count + pending_count %>
+        <% end %>
+      </li>
+      <li class="inbox">
         <%= link_to mailbox_inbox_path do %>
           <i class="material-icons">email</i>
         <% end %>
