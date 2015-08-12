@@ -1,7 +1,7 @@
 <div class="project row">
 	<div class="project-main left col s12 m9 l9">
 		<div class="project-header row">
-			<h1><%= @project.title%></h1> 
+			<h1><%= @project.title%></h1>
 		</div>
 		<div class="project-desc">
 			<%= @project.description%>
@@ -57,7 +57,7 @@
 		<div class="collaborators">
 	 		<h3>Project collaborators:</h3>
 	 		<% if @active_collaborators.empty? %>
-				<p>No collaborator</p>
+				<p>This project has no collaborators yet.</p>
 			<% else %>
 				<%= render @active_collaborators %>
 			<% end %>
