@@ -1,7 +1,7 @@
 body {
   font-family: $main-font;
   font-size:14px;
-  background-color: white;
+  background-color: $background-color;
   color: $text-color;
 }
 
@@ -111,9 +111,9 @@ ul {
     height: 100%;
     width: 100%;
     overflow: hidden;
-
     background-size: 100%;
 }
+
 .video-container .poster img {
     width: 100%;
     bottom: 0;
