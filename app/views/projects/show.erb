@@ -48,15 +48,20 @@
 			<%= link_to "Message Project Owner", "#msg", class: "btn modal-trigger" %>
 		</div>
 	<% end %>
-	<div class="collaborators">
-	 <h3>Project collaborators:</h3>
-		<div class="creator">
-			<%= render @project.creator %>
-		</div>
-		<div class="location"><%= @project.creator.city%>, <%= @project.creator.state%></div>
 
-		<%= render @active_collaborators %>
-	</div>
+		<div class="creator">
+			<h3>Project creator: </h3>
+			<%= render @project.creator %>
+			<div class="location"><%= @project.creator.city%>, <%= @project.creator.state%></div>
+		</div>
+		<div class="collaborators">
+	 		<h3>Project collaborators:</h3>
+	 		<% if @active_collaborators.empty? %>
+				<p>No collaborator</p>
+			<% else %>
+				<%= render @active_collaborators %>
+			<% end %>
+		</div>
 
 </div>
 
