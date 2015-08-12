@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="msg-content col s10">
-      <h4><%= conversation.subject %></h4>
+      <h4><%= link_to conversation.subject, conversation_path(conversation) %></h4>
       <div class="body">
         <%= truncate conversation.messages.last.body, length: 145 %>
       </div>

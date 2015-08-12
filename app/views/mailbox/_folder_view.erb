@@ -1,6 +1,7 @@
 <div class="mailbox row">
   <%= render "mailbox/folders" %>
   <div class="mailbox-messages right col s12 t10 l10">
+
     <% if @pending_requests %>
       <% @pending_requests.each do |req| %>
       <div class="pending-request row">
@@ -8,17 +9,17 @@
         <h4><%= link_to req.collaborator.username, user_path(req.collaborator) %> is requesting to collaborate on <%= link_to req.project.title, project_path(req.project.title) %></h4>
         </div>
         <div class="col s1">
-        <%= button_to project_collaboration_path(req.project, req), method: 'patch', params:{status: 'approved'}, class: "btn-floating red lighten-1" do %>
+        <%= button_to project_collaboration_path(req.project, req), method: 'patch', params:{status: 'approved'}, class: "btn-floating light-green lighten-2" do %>
           <i class="material-icons">done</i>
         <% end %>
         </div>
         <div class="col s1">
-        <%= button_to project_collaboration_path(req.project, req), method: 'patch', params:{status: 'denied'}, class: "btn-floating light-green lighten-2" do %>
+        <%= button_to project_collaboration_path(req.project, req), method: 'patch', params:{status: 'denied'}, class: "btn-floating red lighten-1" do %>
           <i class="material-icons">clear</i>
         <% end %>
         </div>
-        <% end %>
-        </div>
+      </div>
+      <% end %>
     <% end %>
 
     <% if is_conversation %>
