@@ -1,23 +1,16 @@
-<div class="project-teaser card col s12 m4 l3">
+<div class="project-teaser card col s12 m5 l5">
   <div class="card-content">
     <span class="title card-title"><%= link_to project.title, project_path(project)%> </span>
     (Location: <%= project.creator.city %>, <%= project.creator.state %>)
     <p><%= project.description %></p>
     <p>Project Lead: <%= project.creator.username %></p>
- <div class="tags">
-      <% project.tags.each do |tag| %>
-        <div class="tag"><%= link_to tag.name, tag_path(tag), class: "tag"%></div>
-  <% end %>
-</div>
     <% if project.level%>
       <div class="level">
         <p>level: <%= project.level%></p>
       </div>
     <% end %>
-    <div class="tags">
-      <% project.tags.each do |tag| %>
-        <div class="tag"><%= link_to tag.name, tag_path(tag), class: "tag"%></div>
-      <% end %>
+    <div class="tags-display">
+      <%= render project.tags %>
     </div>
   </div>
 </div>
