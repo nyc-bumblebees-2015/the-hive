@@ -24,6 +24,16 @@
 		<div class="project-desc">
 			<%= @project.description%>
 		</div>
+
+		<div class="collaborators row">
+	 		<h3>Project collaborators:</h3>
+	 		<% if @active_collaborators.empty? %>
+				<p>This project has no collaborators yet.</p>
+			<% else %>
+				<%= render @active_collaborators %>
+			<% end %>
+		</div>
+
 		<h3>Skills desired:</h3>
 		<div class="requirement">
 			<%= @project.skills_desired %>
@@ -58,15 +68,6 @@
 </div>
 			<div class="location"><%= @project.creator.city%>, <%= @project.creator.state%></div>
 		</div>
-		<div class="collaborators">
-	 		<h3>Project collaborators:</h3>
-	 		<% if @active_collaborators.empty? %>
-				<p>This project has no collaborators yet.</p>
-			<% else %>
-				<%= render @active_collaborators %>
-			<% end %>
-		</div>
-
 </div>
 
 </div>
