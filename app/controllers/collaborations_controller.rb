@@ -16,8 +16,14 @@ class CollaborationsController < ApplicationController
     collaborations = Collaboration.find_by(id: params[:id])
     collaborations.status = params[:status]
     if collaborations.save && collaborations.status == 'approved'
+      project = Project.find_by(id: params[:project_id])
+      recipient = User.find_by(id: collaborations.collaborator_id)
+      current_user.send_message(recipient, "You have been approved to work on #{project.title}", "Approved").conversation
       flash[:notice] = "You have approved the person"
     elsif collaborations.save && collaborations.status == 'denied'
+      project = Project.find_by(id: params[:project_id])
+      recipient = User.find_by(id: collaborations.collaborator_id)
+      current_user.send_message(recipient, "You have been denied to work on #{project.title}", "Denied").conversation
       flash[:notice] = "You have denied the person"
     else
       flash[:errors] = collaboration.errors.full_messages
