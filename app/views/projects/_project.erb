@@ -8,6 +8,7 @@
     <p><%= project.description %></p>
     <p class="team-lead"><b>TEAM LEAD:</b> <%= link_to project.creator.username, user_path(project.creator) %></p>
     <div class="project-tags">
+      <label>Tags</label>
       <%= render project.tags %>
     </div>
   </div>

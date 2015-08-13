@@ -20,3 +20,11 @@
   color: $accent-color;
   margin: 7px;
 }
+
+.project-tags {
+  label { 
+    padding-top:10px;
+    text-transform:uppercase;
+    padding-right:10px;
+  }
+}

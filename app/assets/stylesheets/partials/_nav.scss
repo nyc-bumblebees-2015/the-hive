@@ -1,5 +1,4 @@
 nav {
-
   background-color: $nav-color;
 
   &:after {
@@ -30,6 +29,14 @@ nav {
       padding:5px;
     }
   }
+
+  li#mailer_count {
+    background-color: $danger-color;
+    padding:0 10px;
+    font-weight:bold;
+    font-size: 20px;
+  }
+
 
   li.profile i {
     display: inline-block;
