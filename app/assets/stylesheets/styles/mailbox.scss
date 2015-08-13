@@ -41,6 +41,16 @@
 
 }
 
+.pending-request {
+  background-color: $beginner-color;
+  font-weight: bold;
+  padding:5px;
+  color:$background-color;
+  a {
+    color: $panel-color;
+  }
+}
+
 .trash {
   background-color: $background-color;
   &:hover {
