@@ -15,14 +15,9 @@ a {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Slim Joe';
+  font-family: $main-font;
   color: $accent-color;
   font-weight:bold;
-}
-
-h1 {
-  font-size: 2em;
-  font-family: 'Slim Joe';
 }
 
 h2 {
