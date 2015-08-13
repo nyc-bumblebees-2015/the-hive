@@ -45,8 +45,11 @@
   background-color: $beginner-color;
   font-weight: bold;
   padding:5px;
-  color:$background-color;
+  h4 {
+    color:$background-color;
+  }
   a {
+    text-decoration:underline;
     color: $panel-color;
   }
 }
