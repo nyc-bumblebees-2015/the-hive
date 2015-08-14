@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     tags = params[:tags].split(',')
     tags.each do |tag|
-      valid_tag = Tag.find_by(name: tag.strip.capitalize)
+      valid_tag = Tag.find_by(name: tag.strip)
       if valid_tag
         @project.tags << valid_tag
       else
