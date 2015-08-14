@@ -1,7 +1,7 @@
 <div class="conversation row">
   <div class="message row">
     <div class="msg-headers col s2">
-      <h3><%= link_to conversation.originator.username, user_path(conversation.originator) %></h3>
+      <div class="sender"><%= link_to conversation.originator.username, user_path(conversation.originator) %></div>
       <div class="date">
         <%=  format_date(conversation.messages.last.created_at) %>
       </div>
@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="msg-content col s10">
-      <h4><%= link_to conversation.subject, conversation_path(conversation) %></h4>
+      <div class="subject"><%= link_to conversation.subject, conversation_path(conversation) %></div>
       <div class="body">
         <%= truncate conversation.messages.last.body, length: 145 %>
       </div>
