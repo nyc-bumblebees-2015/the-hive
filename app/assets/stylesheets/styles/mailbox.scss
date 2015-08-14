@@ -38,7 +38,11 @@
   .date {
     font-size:0.85em;
   }
+}
 
+.sender, .subject {
+  font-weight:bold;
+  text-transform: uppercase;
 }
 
 .pending-request {

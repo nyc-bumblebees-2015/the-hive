@@ -3,7 +3,7 @@
   <% message = receipt.message %>
   <div class="message row">
     <div class="msg-headers col s2">
-    <h3><%= link_to message.sender.username, user_path(message.sender) %></h3>
+    <div class="sender"><%= link_to message.sender.username, user_path(message.sender) %></div>
     <div class="date">
       <%=  format_date(message.created_at) %>
     </div>
